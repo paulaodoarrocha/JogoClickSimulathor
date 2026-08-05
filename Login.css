@@ -1,0 +1,109 @@
+body{
+  background-image: url('/Clique.png');
+  margin: 0;
+min-height: 100vh  
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+}
+
+.Container{
+  background: #1E293B;
+    color: white;
+    border: 2px solid #60A5FA;
+    border-radius: 20px;
+
+ 
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+ position: relative;
+ top: 50px;
+ padding: 30px;
+ 
+    background:#1E293B;
+    border:2px solid #60A5FA;
+    border-radius:20px;
+    box-shadow:0 0 30px rgba(96,165,250,.35);
+
+}
+
+button{
+position: relative;
+top: 30px;
+  
+    background:#3B82F6;
+    color:white;
+    border:none;
+    border-radius:12px;
+    padding:10px 25px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+button:hover{
+    background:#2563EB;
+    transform:scale(1.05);
+    box-shadow:0 0 18px #3B82F6;
+}
+
+input{
+    background:#334155;
+    color:white;
+    border:2px solid #60A5FA;
+    border-radius:10px;
+    padding:15px;
+}
+
+input:focus{
+    border-color:#3B82F6;
+    box-shadow:0 0 12px #3B82F6;
+    outline:none;
+}
+
+input[type="radio"]{
+    accent-color:#3B82F6;
+}
+
+#SupremoP{
+  position: relative;
+  right: 47;
+  bottom: 7px;
+}
+
+a{
+  position: relative;
+  bottom: 50px;
+  
+    color:#60A5FA;
+    text-decoration:none;
+
+a:hover{
+    color:#93C5FD;
+}
+}
+
+h1{
+    color:#60A5FA;
+    text-shadow:0 0 10px #3B82F6;
+}
+
+p{
+    color:#E2E8F0;
+}
+
+label{
+    color:#F8FAFC;
+}
+
+h1,h2{
+  text-align: center;
+      color:#60A5FA;
+    text-shadow:0 0 10px #3B82F6;
+}

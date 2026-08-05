@@ -1,0 +1,53 @@
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogo - Clique no certo</title>
+  <link rel="stylesheet" href="Login.css">
+</head>
+
+<body>
+  
+  <h1>bem vindo ao Click Simulathor</h1>
+  
+  <div class="Container">
+  <h2>Login</h2>
+    <form>
+    
+   <p>Nome: <input id="nome" type="text" placeholder="Digite seu nome" required ></p>
+    
+   <p>Email: <input id="email" type="email" placeholder="digite seu email" required> </p>
+   
+   <p>Senha: <input type="password" placeholder="digite sua senha" id="senha" required> </p>
+    
+  <label>
+    <p id="SupremoP">Voce e maior que 18 anos?</p>
+    <input id="radio1" type="radio" name="idade" value="sim" required=> sim
+  </label>
+  
+  <label>
+    <input id="radio2" type="radio" name="idade" value="nao"
+    required> nao
+  </label>
+
+  <button onclick="Verificar()">Entrar</button>
+  
+  <a href="Esqueci.html">Esqueci Senha</a>
+  
+  </form>
+    
+  </div>
+  
+  
+<script src="login.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

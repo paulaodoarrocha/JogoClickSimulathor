@@ -1,0 +1,274 @@
+body {
+    background: linear-gradient(135deg, #0b0014, #16002b, #000000);
+  
+}
+h1{
+  color: red;
+  background: #8b0000;
+  text-align: center;
+}
+#moedas,h3{
+color: #F4C430;
+text-shadow: 0 0 8px #FFD700;
+}
+
+img{
+  height: 150px;
+  width: 150px;
+  
+    border: 3px solid #8b5cf6;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #8b5cf6;
+}
+
+button {
+    
+    background: #8b0000;
+    color: white;
+    border: 2px solid #ff4500;
+    border-radius: 10px;
+    box-shadow: 0 0 12px #ff4500;
+    padding: 5px;
+    width: 90px;
+}
+
+button:hover {
+    transform: scale(1.08);
+    background: #a00000;
+    color: #ffd700;
+    box-shadow: 0 0 20px #ff4500;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+
+.Container{
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+  gap: 30px;
+  position: relative;
+}
+
+.img1 button{
+  position: relative;
+  top: 20px;
+  right: 67px;
+  color: red;
+}
+.img1, img{
+  position: relative;
+  left: 55px;
+  
+}
+
+p{
+  position: relative;
+  left: 40px;
+   background: #8b0000;
+    color: white;
+    border: 2px solid #ff4500;
+    border-radius: 10px;
+    box-shadow: 0 0 12px #ff4500;
+  width: 70px;
+}
+
+.img2 button{
+  position: relative;
+  top: 20px;
+  right: 75px;
+  color: orange;
+}
+
+.img3 button{
+  position: relative;
+  top: 25px;
+  bottom: 1px;
+  right: 25px;
+  color: blue;
+}
+
+.img3 img{
+  position: relative;
+  left: 100px;
+  top: 6px;
+}
+
+.img4 button{
+  position: relative;
+  top: 20px;
+  right: 75px;
+  color: yellow;
+}
+
+.img5 button{
+  position: relative;
+  top: 25px;
+  bottom: 1px;
+  right: 25px;
+  color: pink;
+}
+
+.img5 img{
+  position: relative;
+  left: 100px;
+  top: 6px;
+}
+
+.img6 button{
+  position: relative;
+  top: 20px;
+  right: 75px;
+  color: pink;
+}
+
+.img7 img{
+  position: relative;
+  left: 100px;
+  top: 6px;
+}
+.img7 button{
+  position: relative;
+  top: 25px;
+  bottom: 1px;
+  right: 25px;
+  color: orange;
+}
+
+.img8 button{
+  position: relative;
+  top: 20px;
+  right: 75px;
+  color: #8b5cf6;
+text-shadow: 0 0 8px #8b5cf6;
+}
+
+.img1 p {
+  color: red;
+  position: relative;
+  left: 75px;
+  top: 17px;
+}
+
+
+.img3 p {
+  color: orange;
+  position: relative;
+  left: 125px;
+  top: 17px;
+}
+
+.img5 p {
+  color: red;
+  position: relative;
+  left: 125px;
+  top: 17px;
+}
+
+.img7 p {
+  color: red;
+  position: relative;
+  left: 125px;
+  top: 17px;
+}
+
+.img8 p {
+  color: red;
+  position: relative;
+  left: 125px;
+  top: 17px;
+}
+
+.img2 p {
+  color: red;
+  position: relative;
+  left: 125px;
+  top: 17px;
+}
+
+.img4 p {
+  color: yellow;
+  position: relative;
+  left: 125px;
+  top: 17px;
+}
+
+.img6 p {
+  color: blue;
+  position: relative;
+  left: 125px;
+  top: 17px;
+}
+
+.img9 p {
+  color: red;
+  position: relative;
+  left: 125px;
+  top: 17px;
+}
+
+.cor{
+  color: #00bfff;
+text-shadow: 0 0 10px #00bfff;
+}
+
+.megumi{
+  color: #8b5cf6;
+text-shadow: 0 0 8px #8b5cf6;
+}
+
+.saber{
+  color: #ffd700;
+text-shadow: 0 0 10px #ffd700;
+}
+
+#finalBoss{
+  
+  position: relative;
+  left: 200px;
+  top: 100px;
+  
+ border: 2px solid #00e5ff;
+ border-radius: 10px;
+ padding: 40px 30px;
+ background: rgba(0, 0, 0, 0.35);
+ -webkit-text-stroke: 20px ffffff;
+ box-shadow: 0 0 15px #00e5ff; 
+  
+ color: #ffffff;
+ text-shadow: 
+  0 0 8px #ffffff,
+  0 0 18px #00ffff,
+  0 0 35px #8a2be2;
+}
+
+#loja{
+  position: absolute;
+  top: 67px;
+  left: 350px;
+}
+
+span, h2{
+    color: red;
+    display: inline-block;
+  animation: mover 5s linear infinite;
+}
+
+@keyframes mover{
+  25% {transform: rotate(20deg)
+    
+  }
+  50% {transform:rotate(-20deg)
+}
+}
+
+#Espada{
+  position: absolute;
+  top: 67px;
+  left: 250px;
+}
+#Inicio{
+color: red;
+  background: #8b0000;
+  text-decoration: none;
+}

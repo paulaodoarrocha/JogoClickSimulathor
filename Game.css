@@ -1,0 +1,88 @@
+body{
+    background:#0b1020;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+h1{
+  text-align: center;
+  color:  #ffd700;
+}
+h2{
+  color:  #00e5ff;;
+}
+h3{
+  color: #ff9800;
+}
+#h3{
+  color: #ff9800;
+}
+#moedas,h3{
+color: #F4C430;
+text-shadow: 0 0 8px #FFD700;
+}
+
+button{
+  width: 80px;
+  height: 80px;
+ 
+ background: #252a34;
+color: white;
+border: 2px solid #00e5ff;
+
+ 
+}
+button:hover{
+  background: #00e5ff;
+color: black;
+box-shadow: 0 0 20px #00e5ff;
+}
+.meio{
+  text-align: center;
+  margin-top: 100px ;
+}
+img{
+  width: 80px;
+  height: 80px;
+}
+.alinhar{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: linear-gradient(background: #1a237e;);
+}
+#apenasp{
+  text-align: center;
+  color: #005eff;
+}
+
+p{
+  color: red;
+}
+button:hover{
+  background-color: green;
+}
+
+
+.Exclusivo{
+
+border:3px solid #00ffff;
+border-radius:15px;
+background:linear-gradient(180deg,#1b263b,#0d1b2a);
+color:white;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 0 15px cyan;
+
+}
+
+Exclusivo:hover{
+
+transform:scale(1.08);
+border-color:#FFD700;
+box-shadow:0 0 25px #FFD700,0 0 40px cyan;
+background:linear-gradient(180deg,#2a3f5f,#102542);
+
+}

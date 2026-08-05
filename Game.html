@@ -1,0 +1,97 @@
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogo - Clique no certo</title>
+  <link rel="stylesheet" href="Game.css">
+</head>
+
+<body>
+
+   
+  <h1>Simulado de Click</h1>
+  <hr>
+  <h2>Poder:  <span id="poder">poder</span></h2>
+  <br>
+  <h3>Ganho: <span id="ganho">1</span></h3>
+  <br>
+  <h3>Moedas: <span id="moedas">0</span></h3>
+  <br>
+  <h2 id="proximoRank">Proximo Rank: </h2>
+  <br>
+  <h2 id="h3"> Rank: <span id="rank"></span></h2>
+  <br>
+  <br>
+  <br>
+ <a href="Loja.html"><button class="Exclusivo" onclick="Loja">Loja</button></a>
+  <div class="Container">
+    
+    <div class="Meio">
+  <button class="Exclusivo" onclick="window.location.href='batalha.html'">
+    Batalhar  
+    Bosses
+</button>
+    
+    </div>
+    
+    <div class="meio">
+    <button onclick="treinar()">Click</button>
+    <button id="automatico" onclick="automatico()">5000 Poder</button>
+    </div>
+    
+    
+    <div class="alinhar">
+   <p id="apenasp">Acessorios</p>
+   <hr>
+   <p>Colar Prata</p>
+   <p>5X energia⚡</p>
+   
+   <img src="Prata.jpg">
+   <button onclick="acc()">R$: 55k</button>
+   
+   <br>
+   
+   <p>Colar Ouro</p>
+   <p>6x energia⚡</p>
+   <img src="Ouro.jpg">
+   <button onclick="acc2()">R$: 100B</button>
+   
+   <br>
+   
+   <p>Pingente Diamante</p>
+   <p>10x energia⚡</p>
+   <img src="Diamante.jpg">
+  <button onclick="acc3()">R$: 20Qd</button>
+  
+  <br>
+  
+  <p>Ametista</p>
+  <p>15x energia⚡</p>
+  <img src="Ametista.jpg">
+   <button onclick="acc4()">R$: 300Sx</button>
+   
+   <br>
+   
+   <p>ficçao Atomica</p>
+   <p>30x energia⚡</p>
+   <img src="Atomica.jpg">
+  <button onclick="acc5()">R$: 900Oc</button>
+  
+  <br>
+  
+  <p>Antimateria</p>
+  <p>50x energia⚡</p>
+  <img src="Antimateria.jpg">
+  <button onclick="acc6()">R$: 2Ud</button>
+  
+
+  </div>
+
+</div>
+
+
+
+
+<script src="Moedas.js"></script>
+<script src="Game.js"></script>
+</body>
+</html>
