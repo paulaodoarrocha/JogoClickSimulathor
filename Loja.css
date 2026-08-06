@@ -2,6 +2,10 @@ body{
  text-align: center;
  background: linear-gradient(180deg,#0F172A,#020617);
 }
+* {
+    touch-action: manipulation;
+    user-select: none;
+}
 .Container{
 display: flex;
 align-content: center;
