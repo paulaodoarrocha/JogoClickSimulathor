@@ -8,7 +8,10 @@ align-items:center;
 flex-direction:column;
 
 }
-
+* {
+    touch-action: manipulation;
+    user-select: none;
+}
 .Container{
   background: #1E293B;
     color: white;
