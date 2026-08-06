@@ -160,8 +160,6 @@ localStorage.setItem("ganho", ganho)
 
 }
 
-
-
 function calcularBonusRank(){
 // Infinito
 if(poder >= 1e78){
@@ -173,132 +171,132 @@ bonusRank = 5e80
 // Supremo Final
 else if(poder >= 3e70){
 
-bonusRank = 2e70
+bonusRank = 7e69
 
 }
 
 // Divindade Absoluta
 else if(poder >= 6e66){
 
-bonusRank = 8e65
+bonusRank = 2e65
 
 }
 
 // Imperador Cósmico
 else if(poder >= 6e63){
 
-bonusRank = 2e63
+bonusRank = 7e62
 
 }
 
 // Rei Cósmico
 else if(poder >= 2e61){
 
-bonusRank = 7e60
+bonusRank = 1e60
 
 }
 
 // Transcendente
 else if(poder >= 1e60){
 
-bonusRank = 2e58
+bonusRank = 4e57
 
 }
 
 // Arcanjo Supremo
 else if(poder >= 4e58){
 
-bonusRank = 3e57
+bonusRank = 9e56
 
 }
 
 // Ancião Eterno
 else if(poder >= 8e55){
 
-bonusRank = 2e55
+bonusRank = 8e54
 
 }
 
 // Eterno
 else if(poder >= 6e53){
 
-bonusRank = 3e52
+bonusRank = 9e51
 
 }
 
 // Destruidor
 else if(poder >= 9e43){
 
-bonusRank = 9e48
+bonusRank = 1e48
 
 }
 
 // Lorde Galáctico
 else if(poder >= 4e40){
 
-bonusRank = 3e40
+bonusRank = 1e40
 
 }
 
 // Omega
 else if(poder >= 1e40){
 
-bonusRank = 5e37
+bonusRank = 1e37
 
 }
 
 // Cósmico
 else if(poder >= 9e36){
 
-bonusRank = 4e36
+bonusRank = 1e36
 
 }
 
 // Titã
 else if(poder >= 2e35){
 
-bonusRank = 3e33
+bonusRank = 1e33
 
 }
 
 // Supremo
 else if(poder >= 1e31){
 
-bonusRank = 3e30
+bonusRank = 1e30
 
 }
 
 // Lendário
 else if(poder >= 9e29){
 
-bonusRank = 2e28
+bonusRank = 9e27
 
 }
 
 // Divino
 else if(poder >= 9e25){
 
-bonusRank = 1e25
+bonusRank = 8e24
 
 }
 
 // Semideus
 else if(poder >= 7e22){
 
-bonusRank = 3e21
+bonusRank = 1e21
 
 }
 
 // Mítico
 else if(poder >= 2e18){
 
-bonusRank = 4e17
+bonusRank = 1e17
 
 }
 // Mestre Arcano
 else if(poder >= 3e16){
 
-bonusRank = 4e15
+bonusRank = 1e15
 
 }
 
@@ -340,14 +338,14 @@ bonusRank = 4e5
 // Veterano
 else if(poder >= 100000){
 
-bonusRank = 10000
+bonusRank = 8000
 
 }
 
 // Pro
 else if(poder >= 10000){
 
-bonusRank = 2000
+bonusRank = 1500
 
 }
 
@@ -361,7 +359,7 @@ bonusRank = 100
 // Iniciante
 else if(poder >= 50){
 
-bonusRank = 100
+bonusRank = 50
 
 }
 
@@ -908,7 +906,7 @@ if(poder >= 9e29){
 
 poder -= 9e29
 
-ganho *= 30
+ganho *= 20
 
 accCompradoAtomica = true
 
