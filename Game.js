@@ -928,7 +928,7 @@ if(poder >= 9e29){
 
 poder -= 9e29
 
-ganho *= 20
+ganho *= 15
 
 accCompradoAtomica = true
 
@@ -967,7 +967,7 @@ if(poder >= 2e36){
 
 poder -= 2e36
 
-ganho *= 50
+ganho *= 20
 
 accCompradoAntimateria = true
 
