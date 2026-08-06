@@ -2,7 +2,10 @@ body{
     background: linear-gradient(180deg,#111827,#0b1020);
     margin: 0;
 }
-
+* {
+    touch-action: manipulation;
+    user-select: none;
+}
 .Arena{
     width: 90%;
     height: 820px;
