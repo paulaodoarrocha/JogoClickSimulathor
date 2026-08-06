@@ -732,7 +732,29 @@ atualizarTela()
 
 }
 
+if(accComprado){
+    ganho *= 3
+}
 
+if(accCompradoOuro){
+    ganho *= 5
+}
+
+if(accCompradoDiamante){
+    ganho *= 7
+}
+
+if(accCompradoAmetista){
+    ganho *= 10
+}
+
+if(accCompradoAtomica){
+    ganho *= 15
+}
+
+if(accCompradoAntimateria){
+    ganho *= 20
+}
 
 
 // Colar Prata
@@ -751,7 +773,7 @@ if(poder >= 50000){
 
 poder -= 50000
 
-ganho *= 5
+ganho *= 3
 
 accComprado = true
 
@@ -791,7 +813,7 @@ if(poder >= 1e10){
 
 poder -= 1e10
 
-ganho *= 6
+ganho *= 5
 
 localStorage.setItem("accCompradoOuro", "true")
 
@@ -828,7 +850,7 @@ if(poder >= 2e16){
 
 poder -= 2e16
 
-ganho *=10
+ganho *= 7
 
 accCompradoDiamante = true
 
@@ -867,7 +889,7 @@ if(poder >= 3e23){
 
 poder -= 3e23
 
-ganho *= 15
+ganho *= 10
 
 accCompradoAmetista = true
 
