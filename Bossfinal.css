@@ -5,6 +5,10 @@ body{
   background-size: cover;
   text-align: center;
 }
+* {
+    touch-action: manipulation;
+    user-select: none;
+}
 .img9 img{
   height: 55vh;
   width: 35vh;
