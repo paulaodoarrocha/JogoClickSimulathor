@@ -2,6 +2,10 @@ body {
     background: linear-gradient(135deg, #0b0014, #16002b, #000000);
   
 }
+* {
+    touch-action: manipulation;
+    user-select: none;
+}
 h1{
   color: red;
   background: #8b0000;
