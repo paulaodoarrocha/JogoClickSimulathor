@@ -28,7 +28,7 @@ const escalaBase = {
   Sxvg: 25,
   Spvg: 26,
   Nvvg: 27,
-  Utvg2: 28,
+  Qrvdg: 28,
   Trvg: 29
 }
 
@@ -68,7 +68,7 @@ function formatarNumero(num) {
     ["Sxvg", 1e75],
     ["Spvg", 1e78],
     ["Nvvg", 1e84],
-    ["Utvg2", 1e87],
+    ["Qrvdg", 1e87],
     ["Trvg", 1e90]
     
 
