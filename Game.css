@@ -28,8 +28,10 @@ text-shadow: 0 0 8px #FFD700;
 }
 
 button{
-  width: 80px;
-  height: 80px;
+width: 20vw;
+  height: 20vw;
+  max-width: 80px;
+  max-height: 80px;
  
  background: #252a34;
 color: white;
@@ -47,8 +49,10 @@ box-shadow: 0 0 20px #00e5ff;
   margin-top: 100px ;
 }
 img{
-  width: 80px;
-  height: 80px;
+  width: 20vw;
+  height: 20vw;
+  max-width: 80px;
+  max-height: 80px;
 }
 .alinhar{
   display: flex;
