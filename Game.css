@@ -12,31 +12,32 @@ body{
 h1{
   text-align: center;
   color:  #ffd700;
-    font-size: 5vw;
+    font-size: 4vw;
 }
 h2{
   color:  #00e5ff;
-    font-size: 5vw;
+    font-size: 4vw;
 }
 h3{
   color: #ff9800;
-    font-size: 5vw;
+    font-size: 4vw;
 }
 #h3{
   color: #ff9800;
-    font-size: 5vw;
+    font-size: 4vw;
 }
 #moedas,h3{
 color: #F4C430;
 text-shadow: 0 0 8px #FFD700;
-    font-size: 5vw;
+    font-size: 4vw;
 }
 
 button{
-width: 20vw;
-  height: 20vw;
-  max-width: 80px;
-  max-height: 80px;
+
+  width: 90px;
+  height: 90px;
+  max-width: 20vw;
+  max-height: 20vw;
  
  background: #252a34;
 color: white;
@@ -54,10 +55,10 @@ box-shadow: 0 0 20px #00e5ff;
   margin-top: 100px ;
 }
 img{
-  width: 20vw;
-  height: 20vw;
-  max-width: 80px;
-  max-height: 80px;
+  width: 100px;
+  height: 100px;
+  max-width: 25vw;
+  max-height: 25vw;
 }
 .alinhar{
   display: flex;
@@ -68,12 +69,12 @@ img{
 #apenasp{
   text-align: center;
   color: #005eff;
-    font-size: 5vw;
+    font-size: 4vw;
 }
 
 p{
   color: red;
-    font-size: 5vw;
+    font-size: 4vw;
 }
 button:hover{
   background-color: green;
