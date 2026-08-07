@@ -12,19 +12,24 @@ body{
 h1{
   text-align: center;
   color:  #ffd700;
+    font-size: 5vw;
 }
 h2{
-  color:  #00e5ff;;
+  color:  #00e5ff;
+    font-size: 5vw;
 }
 h3{
   color: #ff9800;
+    font-size: 5vw;
 }
 #h3{
   color: #ff9800;
+    font-size: 5vw;
 }
 #moedas,h3{
 color: #F4C430;
 text-shadow: 0 0 8px #FFD700;
+    font-size: 5vw;
 }
 
 button{
@@ -63,10 +68,12 @@ img{
 #apenasp{
   text-align: center;
   color: #005eff;
+    font-size: 5vw;
 }
 
 p{
   color: red;
+    font-size: 5vw;
 }
 button:hover{
   background-color: green;
