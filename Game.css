@@ -12,30 +12,30 @@ body{
 h1{
   text-align: center;
   color:  #ffd700;
-    font-size: 4vw;
+    font-size: 3vw;
 }
 h2{
   color:  #00e5ff;
-    font-size: 4vw;
+    font-size: 3vw;
 }
 h3{
   color: #ff9800;
-    font-size: 4vw;
+    font-size: 3vw;
 }
 #h3{
   color: #ff9800;
-    font-size: 4vw;
+    font-size: 3vw;
 }
 #moedas,h3{
 color: #F4C430;
 text-shadow: 0 0 8px #FFD700;
-    font-size: 4vw;
+    font-size: 3vw;
 }
 
 button{
 
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   max-width: 20vw;
   max-height: 20vw;
  
@@ -55,8 +55,8 @@ box-shadow: 0 0 20px #00e5ff;
   margin-top: 100px ;
 }
 img{
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   max-width: 25vw;
   max-height: 25vw;
 }
@@ -69,12 +69,12 @@ img{
 #apenasp{
   text-align: center;
   color: #005eff;
-    font-size: 4vw;
+    font-size: 3vw;
 }
 
 p{
   color: red;
-    font-size: 4vw;
+    font-size: 3vw;
 }
 button:hover{
   background-color: green;
