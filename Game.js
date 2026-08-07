@@ -127,7 +127,7 @@ const lista = [
 ["Sxvg",1e75],
 ["Spvg",1e78],
 ["Nvvg",1e84],
-["Utvg2",1e87],
+["Qrvdg",1e87],
 ["Trvg",1e90]
 
 ]
