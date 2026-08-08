@@ -1,3 +1,6 @@
+html {
+    touch-action: manipulation;
+}
 body{
     background:linear-gradient(135deg,#0b0014,#16002b,#000);
     min-height:100vh;
