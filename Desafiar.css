@@ -1,3 +1,8 @@
+html{
+    touch-action: manipulation;
+    }
+
+
 body{
     background:linear-gradient(180deg,#111827,#0b1020);
     margin:0;
