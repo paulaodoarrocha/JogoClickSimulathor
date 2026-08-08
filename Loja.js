@@ -122,3 +122,74 @@ if(valor >= 1e3) return (valor/1e3).toFixed(1).replace(".0","") + "K"
 return valor.toString()
 
 }
+
+let petFofo = new Audio("PetFofo.mp3")
+petFofo.volume = 0.5
+
+petBtn1.addEventListener("click", function(){
+  petFofo.play()
+})
+
+
+let petGuerra = new Audio("PetGuerra.mp3")
+petGuerra.volume = 0.5
+
+petBtn2.addEventListener("click", function(){
+  petGuerra.play()
+})
+
+
+let petNaoEstouRindo = new Audio("NaoEstouRindo.mp3")
+petNaoEstouRindo.volume = 0.5
+
+petBtn3.addEventListener("click", function(){
+  petNaoEstouRindo.play()
+})
+
+
+let petEstranho = new Audio("GatoEstranho.mp3")
+petEstranho.volume = 0.5
+
+petBtn4.addEventListener("click", function(){
+  petEstranho.play()
+})
+
+
+let petPodeSim = new Audio("PodeSim.mp3")
+petPodeSim.volume = 0.5
+
+petBtn5.addEventListener("click", function(){
+  petPodeSim.play()
+})
+
+let petCalaBoca= new Audio("CalaBoca.mp3")
+petCalaBoca.volume = 0.5
+
+petBtn6.addEventListener("click", function(){
+  petCalaBoca.play()
+})
+
+
+let petSoEuPossoFalar = new Audio("SoEuPossoFalar.mp3")
+petSoEuPossoFalar.volume = 0.5
+
+petBtn7.addEventListener("click", function(){
+  petSoEuPossoFalar.play()
+})
+
+
+let petSixSeven = new Audio("SixSeven.mp3")
+petSixSeven.volume = 0.5
+
+petBtn8.addEventListener("click", function(){
+  petSixSeven.play()
+})
+
+
+let petAura = new Audio("PetAura.mp3")
+petAura.volume = 0.5
+
+petBtn9.addEventListener("click", function(){
+  petAura.play()
+})
+

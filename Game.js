@@ -1,8 +1,11 @@
 
 let poder = (Number(localStorage.getItem("poder")) || 0)
 
+let ganho = Number(localStorage.getItem("ganho")) || 1
 
-let ganho = 1
+let accEquipado = localStorage.getItem("accEquipado") || ""
+
+
 let petEquipado = Number(localStorage.getItem("petEquipado")) || 0
 
 let bonusPet = 1
@@ -10,39 +13,39 @@ let bonusPet = 1
 switch(petEquipado){
 
 case 1:
-bonusPet = 2
+bonusPet = 5
 break
 
 case 2:
-bonusPet = 4
+bonusPet = 9
 break
 
 case 3:
-bonusPet = 6
-break
-
-case 4:
-bonusPet = 8
-break
-
-case 5:
-bonusPet = 10
-break
-
-case 6:
-bonusPet = 12
-break
-
-case 7:
 bonusPet = 15
 break
 
-case 8:
+case 4:
 bonusPet = 30
 break
 
-case 9:
+case 5:
 bonusPet = 50
+break
+
+case 6:
+bonusPet = 90
+break
+
+case 7:
+bonusPet = 500
+break
+
+case 8:
+bonusPet = 1000
+break
+
+case 9:
+bonusPet = 5000
 break
 
 }
@@ -54,39 +57,39 @@ let bonusEspada = 1
 switch(espadaEquipada){
 
 case 1:
-bonusEspada = 2
+bonusEspada = 5
 break
 
 case 2:
-bonusEspada = 4
-break
-
-case 3:
-bonusEspada = 6
-break
-
-case 4:
-bonusEspada = 8
-break
-
-case 5:
 bonusEspada = 10
 break
 
-case 6:
-bonusEspada = 15
-break
-
-case 7:
+case 3:
 bonusEspada = 20
 break
 
+case 4:
+bonusEspada = 40
+break
+
+case 5:
+bonusEspada = 60
+break
+
+case 6:
+bonusEspada = 80
+break
+
+case 7:
+bonusEspada = 500
+break
+
 case 8:
-bonusEspada = 30
+bonusEspada = 2500
 break
 
 case 9:
-bonusEspada = 50
+bonusEspada = 10000
 break
 
 }
@@ -126,8 +129,9 @@ const lista = [
 ["Qivg",1e72],
 ["Sxvg",1e75],
 ["Spvg",1e78],
-["Nvvg",1e84],
-["Qrvdg",1e87],
+["Nvvg",1e81],
+["Uqnd",1e84],
+["Qrdvg",1e87],
 ["Trvg",1e90]
 
 ]
@@ -160,215 +164,151 @@ localStorage.setItem("ganho", ganho)
 
 }
 
+
+
 function calcularBonusRank(){
-// Infinito
-if(poder >= 1e78){
 
-bonusRank = 5e80
-
+if(poder >= 1e90){
+bonusRank = 1e80
 }
 
-// Supremo Final
-else if(poder >= 3e70){
-
-bonusRank = 7e69
-
+else if(poder >= 3e87){
+bonusRank = 6e76
 }
 
-// Divindade Absoluta
+else if(poder >= 3e84){
+bonusRank = 2e74
+}
+
+else if(poder >= 3e81){
+bonusRank = 2e72
+}
+
+else if(poder >= 3e78){
+bonusRank = 3e70
+}
+
+
+else if(poder >= 3e75){
+bonusRank = 1e66
+}
+
+else if(poder >= 3e72){
+bonusRank = 5e64
+}
+
+else if(poder >= 6e69){
+bonusRank = 1e62
+}
+
 else if(poder >= 6e66){
-
-bonusRank = 2e65
-
+bonusRank = 5e58
 }
 
-// Imperador Cósmico
 else if(poder >= 6e63){
-
-bonusRank = 7e62
-
+bonusRank = 9e55
 }
 
-// Rei Cósmico
-else if(poder >= 2e61){
-
-bonusRank = 1e60
-
+else if(poder >= 5e60){
+bonusRank = 9e52
 }
 
-// Transcendente
-else if(poder >= 1e60){
-
-bonusRank = 4e57
-
+else if(poder >= 4e57){
+bonusRank = 7e50
 }
 
-// Arcanjo Supremo
-else if(poder >= 4e58){
-
-bonusRank = 9e56
-
+else if(poder >= 9e54){
+bonusRank = 4e48
 }
 
-// Ancião Eterno
-else if(poder >= 8e55){
-
-bonusRank = 8e54
-
+else if(poder >= 6e51){
+bonusRank = 6e45
 }
 
-// Eterno
-else if(poder >= 6e53){
-
-bonusRank = 9e51
-
+else if(poder >= 3e48){
+bonusRank = 5e41
 }
 
-// Destruidor
-else if(poder >= 9e43){
-
-bonusRank = 1e48
-
+else if(poder >= 1e45){
+bonusRank = 2e39
 }
 
-// Lorde Galáctico
-else if(poder >= 4e40){
-
-bonusRank = 1e40
-
-}
-
-// Omega
-else if(poder >= 1e40){
-
-bonusRank = 1e37
-
-}
-
-// Cósmico
-else if(poder >= 9e36){
-
+else if(poder >= 1e42){
 bonusRank = 1e36
-
 }
 
-// Titã
-else if(poder >= 2e35){
-
+else if(poder >= 9e39){
 bonusRank = 1e33
-
 }
 
-// Supremo
-else if(poder >= 1e31){
-
-bonusRank = 1e30
-
+else if(poder >= 2e36){
+bonusRank = 5e31
 }
 
-// Lendário
-else if(poder >= 9e29){
-
-bonusRank = 9e27
-
+else if(poder >= 9e33){
+bonusRank = 3e28
 }
 
-// Divino
+else if(poder >= 3e30){
+bonusRank = 1e25
+}
+
 else if(poder >= 9e25){
-
-bonusRank = 8e24
-
+bonusRank = 1e23
 }
 
-// Semideus
 else if(poder >= 7e22){
-
-bonusRank = 1e21
-
+bonusRank = 5e19
 }
 
-// Mítico
 else if(poder >= 2e18){
-
-bonusRank = 1e17
-
+bonusRank = 9e16
 }
-// Mestre Arcano
+
 else if(poder >= 3e16){
-
-bonusRank = 1e15
-
+bonusRank = 5e13
 }
 
-// Celestial
 else if(poder >= 1e14){
-
-bonusRank = 1e13
-
+bonusRank = 1e12
 }
 
-// Imensurável
-else if(poder >= 9e11){
-
-bonusRank = 2e11
-
+else if(poder >= 9e13){
+bonusRank = 5e9
 }
 
-// Lorde
 else if(poder >= 1e10){
-
-bonusRank = 3e8
-
+bonusRank = 1e8
 }
 
-// Hacker
 else if(poder >= 2e8){
-
-bonusRank = 1e7
-
+bonusRank = 1e6
 }
 
-// Elite
 else if(poder >= 1e6){
-
-bonusRank = 4e5
-
+bonusRank = 5000
 }
 
-// Veterano
 else if(poder >= 100000){
-
-bonusRank = 8000
-
+bonusRank = 1000
 }
 
-// Pro
 else if(poder >= 10000){
-
-bonusRank = 1500
-
+bonusRank = 200
 }
 
-// Guerreiro
 else if(poder >= 500){
-
-bonusRank = 100
-
-}
-
-// Iniciante
-else if(poder >= 50){
-
 bonusRank = 50
-
 }
 
-// Noob
+else if(poder >= 50){
+bonusRank = 10
+}
+
 else{
-
 bonusRank = 1
-
 }
+
 
 if(bonusRank > 9e99){
     bonusRank = 9e99
@@ -376,37 +316,79 @@ if(bonusRank > 9e99){
 }
 
 const ranks = [
-{ poder: 0, nome: "Noob 🤡" },
-{ poder: 50, nome: "Iniciante 😊" },
-{ poder: 500, nome: "Guerreiro ⚔️" },
-{ poder: 10000, nome: "Pro 🥶" },
-{ poder: 100000, nome: "Veterano 🛡️" },
-{ poder: 1e6, nome: "Elite 💎" },
-{ poder: 2e7, nome: "Hacker 😈" },
-{ poder: 1e10, nome: "Lorde ⚔️" },
-{ poder: 9e11, nome: "Imensurável 👽" },
-{ poder: 1e14, nome: "Celestial ✨" },
-{ poder: 3e16, nome: "Mestre Arcano 🔮" },
-{ poder: 2e18, nome: "Mítico 🌟" },
-{ poder: 7e22, nome: "Semideus ⚜️" },
-{ poder: 9e25, nome: "Divino 🔱" },
-{ poder: 9e29, nome: "Lendário 🏆" },
-{ poder: 1e31, nome: "Supremo 🌠" },
-{ poder: 2e35, nome: "Titã 🔥" },
-{ poder: 9e36, nome: "Cósmico 🌌" },
-{ poder: 1e40, nome: "Omega Ω" },
-{ poder: 4e40, nome: "Lorde Galáctico 🌌" },
-{ poder: 9e43, nome: "Destruidor 💥" },
-{ poder: 6e53, nome: "Eterno ♾️" },
-{ poder: 8e55, nome: "Ancião Eterno ♾️" },
-{ poder: 1e60, nome: "Transcendente ⚡" },
-{ poder: 2e61, nome: "Rei Cósmico 👑" },
-{ poder: 6e63, nome: "Imperador Cósmico 🌠" },
-{ poder: 6e66, nome: "Divindade Absoluta ⚡" },
-{ poder: 3e70, nome: "Supremo Final 🌌" },
-{ poder: 1e78, nome: "Imperador Universal 👑" },
-{ poder: 1e95, nome: "Infinito ∞ ☠️" }
+
+{poder:0, nome:"Noob 🤡", cor:"gray"},
+
+{poder:50, nome:"Iniciante 😊", cor:"#00ff7f"},
+
+{poder:500, nome:"Guerreiro ⚔️", cor:"lime"},
+
+{poder:10000, nome:"Pro 🥶", cor:"cyan"},
+
+{poder:100000, nome:"Veterano 🛡️", cor:"deepskyblue"},
+
+{poder:1e6, nome:"Elite 💎", cor:"blueviolet"},
+
+{poder:2e8, nome:"Hacker 😈", cor:"red"},
+
+{poder:1e10, nome:"Lorde ⚔️", cor:"crimson"},
+
+{poder:9e13, nome:"Imensurável 👽", cor:"lime"},
+
+{poder:1e14, nome:"Celestial ✨", cor:"violet"},
+
+{poder:3e16, nome:"Mestre Arcano 🔮", cor:"cyan"},
+
+{poder:2e18, nome:"Mítico 🌟", cor:"magenta"},
+
+{poder:7e22, nome:"Semideus ⚜️", cor:"gold"},
+
+{poder:9e25, nome:"Divino 🔱", cor:"orange"},
+
+{poder:3e30, nome:"Lendário 🏆", cor:"yellow"},
+
+{poder:9e33, nome:"Supremo 🌠", cor:"cyan"},
+
+{poder:2e36, nome:"Titã 🔥", cor:"lime"},
+
+{poder:9e39, nome:"Cósmico 🌌", cor:"purple"},
+
+{poder:1e42, nome:"Omega Ω", cor:"blueviolet"},
+
+{poder:1e45, nome:"Lorde Galáctico 🌌", cor:"cyan"},
+
+{poder:3e48, nome:"Destruidor 💥", cor:"red"},
+
+{poder:6e51, nome:"Eterno ♾️", cor:"white"},
+
+{poder:9e54, nome:"Ancião Eterno ♾️", cor:"silver"},
+
+{poder:4e57, nome:"Transcendente ⚡", cor:"aqua"},
+
+{poder:5e60, nome:"Rei Cósmico 👑", cor:"gold"},
+
+{poder:6e63, nome:"Imperador Cósmico 🌠", cor:"orange"},
+
+{poder:6e66, nome:"Divindade Absoluta ⚡", cor:"yellow"},
+
+{poder:6e69, nome:"Supremo Final 🌌", cor:"cyan"},
+
+{poder:3e72, nome:"Imperador Universal 👑", cor:"gold"},
+
+{poder:3e75, nome:"Infinito ∞ ☠️", cor:"white"},
+
+{poder:3e78, nome:"???????????", cor:"red"},
+
+{poder:3e81, nome:"Error (𓁹 𓁹)𓁹‿𓁹👁️⃤", cor:"magenta"},
+
+{poder:3e84, nome:"Rei Do Six Seven👑", cor:"Azure"},
+
+{poder:3e87, nome:"DESEMPREGADO 💀", cor:"black"},
+
+{poder:1e90, nome:"COMO VOCÊ CHEGOU A ISSO? 👁️", cor:"white"}
+
 ]
+
 function atualizarProximoRank(){
 
 let proximo = null
@@ -444,222 +426,491 @@ document.getElementById("proximoRank").innerHTML =
 
 function atualizarRank(){
 
-if(poder >= 1e95){
+if(poder >= 1e90){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px red,0 0 10px orange,0 0 15px yellow,0 0 20px lime,0 0 25px cyan,0 0 30px blue,0 0 35px magenta;">Infinito ∞ ☠️</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 5px red,
+0 0 10px orange,
+0 0 15px yellow,
+0 0 20px lime,
+0 0 25px cyan,
+0 0 30px blue,
+0 0 40px magenta;">
+COMO VOCÊ CHEGOU A ISSO? 👁️♾️
+</span>`
 
 }
 
-else if(poder >= 1e87){
+else if(poder >= 3e87){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px #ff0000,0 0 10px #ff3300,0 0 20px #ff6600,0 0 30px #ffff00;">Imperador Universal 👑</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 10px crimson,
+0 0 20px red,
+0 0 30px orange,
+0 0 40px yellow;">
+DESEMPREGADO 👑
+</span>`
 
 }
 
-else if(poder >= 3e82){
+
+
+else if(poder >= 3e84){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px cyan,0 0 10px #00ffff,0 0 20px #0088ff,0 0 30px #9400D3;">Supremo Final 🌌</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 5px red,
+0 0 10px orange,
+0 0 15px yellow,
+0 0 20px lime,
+0 0 25px cyan;">
+Rei Do Six Seven👑
+</span>`
 
 }
 
-else if(poder >= 1e78){
+
+else if(poder >= 3e81){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px violet,0 0 10px magenta,0 0 20px deeppink,0 0 30px cyan;">Divindade Absoluta ⚡</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 10px red,
+0 0 20px purple,
+0 0 30px cyan,
+0 0 40px blue;">
+Error (𓁹 𓁹)𓁹‿𓁹👁️⃤
+</span>`
 
 }
 
-else if(poder >= 3e70){
+else if(poder >= 3e78){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px gold,0 0 10px orange,0 0 20px yellow,0 0 30px white;">Imperador Cósmico 🌠</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 10px red,
+0 0 20px orange,
+0 0 30px yellow;">
+???????????
+</span>`
+
+}
+
+else if(poder >= 3e75){
+
+document.getElementById("rank").innerHTML =
+`<span style="
+color:white;
+text-shadow:
+0 0 10px cyan,
+0 0 20px blue,
+0 0 30px purple,
+0 0 40px magenta;">
+Infinito ∞ ☠️
+</span>`
+
+}
+
+else if(poder >= 3e72){
+
+document.getElementById("rank").innerHTML =
+`<span style="
+color:white;
+text-shadow:
+0 0 10px gold,
+0 0 20px orange,
+0 0 30px red;">
+Imperador Universal 👑
+</span>`
+
+}
+
+else if(poder >= 6e69){
+
+document.getElementById("rank").innerHTML =
+`<span style="
+color:white;
+text-shadow:
+0 0 8px cyan,
+0 0 18px blue,
+0 0 35px purple;">
+Supremo Final 🌌
+</span>`
 
 }
 
 else if(poder >= 6e66){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px gold,0 0 10px gold,0 0 20px white;">Rei Cósmico 👑</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px yellow,
+0 0 18px gold,
+0 0 35px orange;">
+Divindade Absoluta ⚡
+</span>`
 
 }
 
 else if(poder >= 6e63){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px cyan,0 0 10px deepskyblue,0 0 20px white;">Arcanjo Supremo 😇</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px cyan,
+0 0 18px aqua,
+0 0 35px white;">
+Imperador Cósmico 🌠
+</span>`
 
 }
 
-else if(poder >= 2e61){
+else if(poder >= 5e60){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px cyan,0 0 10px aqua,0 0 20px white;">Transcendente ⚡</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px gold,
+0 0 18px yellow,
+0 0 35px red;">
+Rei Cósmico 👑
+</span>`
 
 }
 
-else if(poder >= 4e58){
+else if(poder >= 4e57){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px white,0 0 10px silver,0 0 20px cyan;">Ancião Eterno ♾️</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px cyan,
+0 0 18px blue,
+0 0 35px purple;">
+Transcendente ⚡
+</span>`
 
 }
 
-else if(poder >= 8e55){
+else if(poder >= 9e54){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px white,0 0 10px gray,0 0 20px cyan;">Eterno ♾️</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px white,
+0 0 18px silver,
+0 0 35px cyan;">
+Ancião Eterno ♾️
+</span>`
 
 }
 
-else if(poder >= 6e53){
+else if(poder >= 6e51){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px hotpink,0 0 10px deeppink,0 0 20px red;">Destruidor 💥</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px white,
+0 0 18px gray,
+0 0 35px blue;">
+Eterno ♾️
+</span>`
 
 }
 
-else if(poder >= 9e43){
+else if(poder >= 3e48){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px magenta,0 0 10px violet,0 0 20px purple;">Omega Ω</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px pink,
+0 0 18px magenta,
+0 0 35px red;">
+Destruidor 💥
+</span>`
 
 }
 
-else if(poder >= 4e40){
+else if(poder >= 1e45){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px slateblue,0 0 10px blueviolet,0 0 20px cyan;">Lorde Galáctico 🌌</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px purple,
+0 0 18px violet,
+0 0 35px blue;">
+Lorde Galáctico 🌌
+</span>`
 
 }
 
-else if(poder >= 9e36){
+else if(poder >= 1e42){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px purple,0 0 10px magenta,0 0 20px blue;">Cósmico 🌌</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px blue,
+0 0 18px cyan,
+0 0 35px white;">
+Omega Ω
+</span>`
 
 }
 
-else if(poder >= 2e35){
+else if(poder >= 2e36){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px lime,0 0 10px greenyellow,0 0 20px cyan;">Titã 🔥</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px lime,
+0 0 18px green,
+0 0 35px cyan;">
+Cósmico 🌌
+</span>`
+
 }
-else if(poder >= 1e31){
+
+else if(poder >= 9e33){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px cyan,0 0 10px #00ffff,0 0 20px #00bfff;">Supremo 🌠</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px orange,
+0 0 18px red,
+0 0 35px yellow">
+Titã 🔥
+</span>`
 
 }
 
-else if(poder >= 9e29){
+else if(poder >= 3e30){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px gold,0 0 10px yellow,0 0 20px orange;">Lendário 🏆</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px gold,
+0 0 18px orange,
+0 0 35px red;">
+Supremo 🌠
+</span>`
 
 }
 
 else if(poder >= 9e25){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px gold,0 0 10px orange,0 0 20px red;">Divino 🔱</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px red,
+0 0 18px orange,
+0 0 35px yellow;">
+Divino 🔱
+</span>`
 
 }
 
 else if(poder >= 7e22){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px lawngreen,0 0 10px lime,0 0 20px green;">Semideus ⚜️</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px green,
+0 0 18px lime,
+0 0 35px cyan;">
+Semideus ⚜️
+</span>`
 
 }
 
 else if(poder >= 2e18){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px violet,0 0 10px deeppink,0 0 20px magenta;">Mítico 🌟</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px violet,
+0 0 18px pink,
+0 0 35px magenta;">
+Mítico 🌟
+</span>`
 
 }
 
 else if(poder >= 3e16){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px dodgerblue,0 0 10px cyan,0 0 20px white;">Mestre Arcano 🔮</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px blue,
+0 0 18px cyan,
+0 0 35px white;">
+Mestre Arcano 🔮
+</span>`
 
 }
 
 else if(poder >= 1e14){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px blueviolet,0 0 10px violet,0 0 20px magenta;">Celestial ✨</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px purple,
+0 0 18px violet,
+0 0 35px magenta;">
+Celestial ✨
+</span>`
 
 }
 
-else if(poder >= 9e11){
+else if(poder >= 9e13){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px lime,0 0 10px lawngreen,0 0 20px green;">Imensurável 👽</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px lime,
+0 0 18px green,
+0 0 35px yellow;">
+Imensurável 👽
+</span>`
 
 }
 
 else if(poder >= 1e10){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px crimson,0 0 10px red,0 0 20px orange;">Lorde ⚔️</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px red,
+0 0 18px crimson,
+0 0 35px orange;">
+Lorde ⚔️
+</span>`
 
 }
 
-else if(poder >= 2e7){
+else if(poder >= 2e8){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px red,0 0 10px crimson,0 0 20px darkred;">Hacker 😈</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px purple,
+0 0 18px red,
+0 0 35px magenta;">
+Hacker 😈
+</span>`
 
 }
 
 else if(poder >= 1e6){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px cyan,0 0 10px dodgerblue,0 0 20px blue;">Elite 💎</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px cyan,
+0 0 18px blue,
+0 0 35px purple;">
+Elite 💎
+</span>`
 
 }
 
 else if(poder >= 100000){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px deepskyblue,0 0 10px cyan;">Veterano 🛡️</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px cyan,
+0 0 18px aqua;">
+Veterano 🛡️
+</span>`
 
 }
 
 else if(poder >= 10000){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px cyan,0 0 10px aqua;">Pro 🥶</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px lime,
+0 0 18px green;">
+Pro 🥶
+</span>`
 
 }
 
 else if(poder >= 500){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px lime,0 0 10px green;">Guerreiro ⚔️</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px blue,
+0 0 18px cyan;">
+Guerreiro ⚔️
+</span>`
 
 }
 
 else if(poder >= 50){
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px #00FF7F,0 0 10px lime;">Iniciante 😊</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 8px lime,
+0 0 18px green;">
+Iniciante 😊
+</span>`
 
 }
 
 else{
 
 document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px gray;">Noob 🤡</span>'
+`<span style="
+color:white;
+text-shadow:
+0 0 5px gray;">
+Noob 🤡
+</span>`
 
 }
-atualizarProximoRank()
+
 }
+
+
 
 
 
@@ -676,8 +927,17 @@ document.getElementById("ganho").innerHTML =
 
 
 atualizarRank()
-
+atualizarProximoRank()
 }
+
+let click = new Audio("Click.mp3")
+click.volume = 0.09
+click.loop = false
+
+
+Click.addEventListener("click", function(){
+  click.play()
+})
 
 
 
@@ -732,30 +992,47 @@ atualizarTela()
 
 }
 
-if(accComprado){
-    ganho *= 3
+
+
+let comprou = new Audio("Comprar.mp3")
+comprou.volume = 0.6
+
+
+
+
+function atualizarAcc(){
+
+if(accEquipado === "prata"){
+    ganho = 3
 }
 
-if(accCompradoOuro){
-    ganho *= 5
+else if(accEquipado === "ouro"){
+    ganho = 6
 }
 
-if(accCompradoDiamante){
-    ganho *= 7
+else if(accEquipado === "diamante"){
+    ganho = 12
 }
 
-if(accCompradoAmetista){
-    ganho *= 10
+else if(accEquipado === "ametista"){
+    ganho = 30
 }
 
-if(accCompradoAtomica){
-    ganho *= 15
+else if(accEquipado === "atomica"){
+    ganho = 50
 }
 
-if(accCompradoAntimateria){
-    ganho *= 20
+else if(accEquipado === "antimateria"){
+    ganho = 50
 }
 
+else{
+    ganho = 1
+}
+
+}
+
+atualizarAcc()
 
 // Colar Prata
 
@@ -763,19 +1040,29 @@ function acc(){
 
 if(accComprado){
 
-alert("Voce ja tem esse Item!!!")
-return
+  accEquipado = "prata"
+  localStorage.setItem("accEquipado", accEquipado)
+comprou.play()
+ganho = 3
+localStorage.setItem("ganho", ganho)
+
+  alert("Acessório Prata equipado!")
+  return
 
 }
 
 
 if(poder >= 50000){
+  
+
 
 poder -= 50000
 
-ganho *= 3
-
 accComprado = true
+
+
+ganho = 3
+localStorage.setItem("ganho", ganho)
 
 localStorage.setItem("accComprado", "true")
 
@@ -787,12 +1074,11 @@ atualizarDepoisCompra()
 
 else{
 
-alert("Poder Insuficiente")
+alert("Poder insuficiente")
 
 }
 
 }
-
 
 
 
@@ -802,18 +1088,23 @@ function acc2(){
 
 if(accCompradoOuro){
 
-alert("Voce ja tem esse Item!!!")
+accEquipado = "ouro"
+localStorage.setItem("accEquipado", accEquipado)
+comprou.play()
+ganho = 6
+localStorage.setItem("ganho", ganho)
+
+alert("Acessório Ouro equipado!")
 return
 
 }
 
-accCompradoOuro = true
 
 if(poder >= 1e10){
 
 poder -= 1e10
 
-ganho *= 5
+accCompradoOuro = true
 
 localStorage.setItem("accCompradoOuro", "true")
 
@@ -825,14 +1116,11 @@ atualizarDepoisCompra()
 
 else{
 
-alert("Poder Insuficiente")
+alert("Poder insuficiente")
 
 }
 
 }
-
-
-
 
 // Pingente Diamante
 
@@ -840,17 +1128,20 @@ function acc3(){
 
 if(accCompradoDiamante){
 
-alert("Voce ja tem esse Item!!!")
-return
+  accEquipado = "diamante"
+  localStorage.setItem("accEquipado", accEquipado)
+comprou.play()
+  ganho = 10
+  localStorage.setItem("ganho", ganho)
+
+  alert("Acessório Diamante equipado!")
+  return
 
 }
 
+if(poder >= 2e19){
 
-if(poder >= 2e16){
-
-poder -= 2e16
-
-ganho *= 7
+poder -= 2e19
 
 accCompradoDiamante = true
 
@@ -879,17 +1170,19 @@ function acc4(){
 
 if(accCompradoAmetista){
 
-alert("Voce ja tem esse Item!!!")
-return
+  accEquipado = "ametista"
+  localStorage.setItem("accEquipado", accEquipado)
+comprou.play()
+  ganho = 18
+  localStorage.setItem("ganho", ganho)
+
+  alert("Acessório Ametista equipado!")
+  return
 
 }
+if(poder >= 1e29){
 
-
-if(poder >= 3e23){
-
-poder -= 3e23
-
-ganho *= 10
+poder -= 1e29
 
 accCompradoAmetista = true
 
@@ -918,17 +1211,19 @@ function acc5(){
 
 if(accCompradoAtomica){
 
-alert("Voce ja tem esse Item!!!")
-return
+  accEquipado = "atomica"
+  localStorage.setItem("accEquipado", accEquipado)
+comprou.play()
+  ganho = 30
+  localStorage.setItem("ganho", ganho)
+
+  alert("Acessório Atômico equipado!")
+  return
 
 }
+if(poder >= 2e40){
 
-
-if(poder >= 9e29){
-
-poder -= 9e29
-
-ganho *= 15
+poder -= 2e40
 
 accCompradoAtomica = true
 
@@ -957,17 +1252,19 @@ function acc6(){
 
 if(accCompradoAntimateria){
 
-alert("Voce ja tem esse Item!!!")
-return
+  accEquipado = "antimateria"
+  localStorage.setItem("accEquipado", accEquipado)
+comprou.play()
+  ganho = 100
+  localStorage.setItem("ganho", ganho)
+
+  alert("Acessório Antimatéria equipado!")
+  return
 
 }
+if(poder >= 6e58){
 
-
-if(poder >= 2e36){
-
-poder -= 2e36
-
-ganho *= 20
+poder -= 6e58
 
 accCompradoAntimateria = true
 
@@ -1008,9 +1305,11 @@ autoClickId = setInterval(function(){
 
 treinar()
 
-},50)
+},200)
 
 }
+
+
 
 
 
@@ -1152,4 +1451,20 @@ document.getElementById("vidaBoss").innerHTML =
 "Vida: " + vidaBoss
 
 
+}
+
+let musicGame = new Audio("GameMusic.mp3")
+musicGame.volume = 0.2
+musicGame.loop = true
+
+
+function controlarMusica(){
+  if(musicGame.paused){
+    musicGame.play()
+    document.getElementById("GameMusic").innerHTML = "On"
+  }
+  else{
+    musicGame.pause()
+    document.getElementById("GameMusic").innerHTML = "Off"
+  }
 }

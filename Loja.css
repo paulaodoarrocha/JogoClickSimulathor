@@ -1,127 +1,325 @@
 body{
- text-align: center;
- background: linear-gradient(180deg,#0F172A,#020617);
-}
-* {
-    touch-action: manipulation;
-    user-select: none;
-}
-.Container{
-display: flex;
-align-content: center;
-align-items: center;
-justify-content: center;
 
- display: grid;
- grid-template-columns: 150px 150px 150px;
-gap: 20px;
+    background:linear-gradient(135deg,#020617,#111827,#000);
 
-background:#1E293B;
-border-radius:18px;
-border:2px solid #334155;
-box-shadow:0 0 12px #000;
-padding:15px;
+    min-height:100vh;
 
-transform:scale(1.05);
-transition:.3s;
-box-shadow:0 0 20px cyan;
+    margin:0;
+
+    text-align:center;
+
+    font-family:Arial;
+
 }
+
 
 h1{
-  color:#FFD700;
-text-shadow:0 0 10px gold;
-font-size:55px;
+
+    color:#00ffcc;
+
+    font-size:clamp(35px,5vw,60px);
+
+    text-shadow:
+
+    0 0 15px cyan,
+
+    0 0 30px cyan;
+
 }
+
+
 #moedas{
-  color:#FFD700;
-text-shadow:0 0 10px gold;
+
+    color:#ffd700;
+
+    text-shadow:0 0 15px gold;
+
 }
-img{
-  width: 150px;
-  height: 150px;
-  
-  border-radius:15px;
-border:3px solid #FFD700;
-box-shadow:0 0 12px gold;
+
+
+
+.Container{
+
+    width:95%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:30px;
+
 }
+
+
+
+.img1,
+.img2,
+.img3,
+.img4,
+.img5,
+.img6,
+.img7,
+.img8,
+.img9{
+
+
+    width:230px;
+
+    padding:20px;
+
+
+    background:rgba(0,0,0,.6);
+
+
+    border-radius:20px;
+
+
+    transition:.3s;
+
+}
+
+
+
+.Container img{
+
+    width:180px;
+
+    height:180px;
+
+    object-fit:cover;
+
+
+    border-radius:20px;
+
+
+    transition:.5s;
+
+}
+
+
+
+.Container img:hover{
+
+    transform:scale(1.12);
+
+}
+
+
 
 button{
-  background:#22C55E;
-color:white;
-border:none;
-border-radius:12px;
-font-weight:bold;
+
+    width:180px;
+
+    height:100px;
+
+
+    border-radius:15px;
+
+
+    background:#111;
+
+    color:white;
+
+
+    border:2px solid white;
+
+
+    cursor:pointer;
+
+
+    font-size:18px;
+
+
+    transition:.3s;
+
 }
+
+
 
 button:hover{
-background:#16A34A;
-box-shadow:0 0 15px lime;
-transform: scale(1.08);
-transition: .3s;
+
+    transform:scale(1.1);
+
 }
+
+
+
+/* CORES DOS PREÇOS */
 
 .cor{
-  color:#FFD700;
-font-weight:bold;
-font-size:25px;
+
+    color:#ffd700;
+
+    text-shadow:0 0 10px gold;
+
 }
+
+
+.power{
+
+    color:#00e5ff;
+
+    text-shadow:0 0 10px cyan;
+
+}
+
+
+
+/* PET 1 */
 
 .img1{
- border: 3px solid #BDBDBD;
-box-shadow: 0 0 8px #BDBDBD;
+
+border:3px solid #00ff00;
+
+box-shadow:0 0 20px #00ff00;
+
 }
-#error{
-  border: 3px solid green;
- box-shadow: 0 0 12px green;
+
+
+/* PET 2 */
+
+.img2{
+
+border:3px solid #00bfff;
+
+box-shadow:0 0 25px #00bfff;
+
 }
+
+
+/* PET 3 */
+
 .img3{
-border: 3px solid #3B82F6;
-box-shadow: 0 0 12px #3B82F6;
+
+border:3px solid #8b5cf6;
+
+box-shadow:0 0 30px #8b5cf6;
+
 }
+
+
+/* PET 4 */
+
 .img4{
-  border: 3px solid #A855F7;
-box-shadow: 0 0 15px #A855F7;
+
+border:3px solid orange;
+
+box-shadow:0 0 35px orange;
+
 }
+
+
+/* PET 5 */
+
 .img5{
-  border: 3px solid #FFD700;
-box-shadow: 0 0 18px #FFD700;
+
+border:3px solid gold;
+
+box-shadow:0 0 40px gold;
+
+animation:aura 2s infinite;
+
 }
+
+
+/* PET 6 */
+
 .img6{
-  border: 3px solid #FF2D55;
-box-shadow: 0 0 22px #FF2D55;
+
+border:3px solid red;
+
+box-shadow:
+
+0 0 40px red,
+
+0 0 70px black;
+
 }
+
+
+/* PET 7 */
+
 .img7{
-border: 3px solid #00E5FF;
+
+border:3px solid #ff00ff;
+
 box-shadow:
-0 0 10px #00E5FF,
-0 0 20px #00E5FF,
-0 0 35px #00E5FF;
+
+0 0 50px #ff00ff,
+
+0 0 80px cyan;
+
 }
+
+
+/* PET 8 */
+
 .img8{
-  border: 3px solid #C026D3;
+
+border:3px solid white;
+
 box-shadow:
-0 0 12px #C026D3,
-0 0 25px #C026D3,
-0 0 40px #C026D3;
+
+0 0 50px white,
+
+0 0 100px blue;
+
 }
+
+
+/* PET 9 */
+
 .img9{
-border: 3px solid #FF6A00;
+
+border:3px solid red;
+
+background:
+
+linear-gradient(135deg,#000,#300000);
+
 
 box-shadow:
-0 0 15px #FF6A00,
-0 0 30px #FF4500,
+
 0 0 50px red,
-0 0 80px darkred;
-transform: scale(1.02);
+
+0 0 100px darkred,
+
+0 0 150px black;
+
+
+animation:demonio 1.5s infinite;
+
 }
 
-.comprar{
-font-size: 23px;
-color: white;
-text-shadow: 0 0 6px white;
+
+
+@keyframes aura{
+
+50%{
+
+transform:scale(1.04);
 
 }
-.power{
-  color: #FF3131;
-text-shadow: 0 0 8px #FF3131;
+
+}
+
+
+
+@keyframes demonio{
+
+50%{
+
+transform:scale(1.06);
+
+filter:brightness(1.5);
+
+}
+
 }

@@ -1,112 +1,251 @@
 body{
-  background-image: url('/Clique.png');
-  margin: 0;
-min-height: 100vh  
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
 
-}
-* {
-    touch-action: manipulation;
-    user-select: none;
-}
-.Container{
-  background: #1E293B;
-    color: white;
-    border: 2px solid #60A5FA;
-    border-radius: 20px;
+    background-image:url('/Clique.png');
 
- 
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
+    background-size:cover;
 
- position: relative;
- top: 50px;
- padding: 30px;
- 
-    background:#1E293B;
-    border:2px solid #60A5FA;
-    border-radius:20px;
-    box-shadow:0 0 30px rgba(96,165,250,.35);
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+
+    min-height:100vh;
+
+    margin:0;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+
+    font-family:Arial;
 
 }
 
-button{
-position: relative;
-top: 30px;
-  
-    background:#3B82F6;
-    color:white;
-    border:none;
-    border-radius:12px;
-    padding:10px 25px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
 
-}
 
-button:hover{
-    background:#2563EB;
-    transform:scale(1.05);
-    box-shadow:0 0 18px #3B82F6;
-}
-
-input{
-    background:#334155;
-    color:white;
-    border:2px solid #60A5FA;
-    border-radius:10px;
-    padding:15px;
-}
-
-input:focus{
-    border-color:#3B82F6;
-    box-shadow:0 0 12px #3B82F6;
-    outline:none;
-}
-
-input[type="radio"]{
-    accent-color:#3B82F6;
-}
-
-#SupremoP{
-  position: relative;
-  right: 47;
-  bottom: 7px;
-}
-
-a{
-  position: relative;
-  bottom: 50px;
-  
-    color:#60A5FA;
-    text-decoration:none;
-
-a:hover{
-    color:#93C5FD;
-}
-}
+/* TITULO */
 
 h1{
-    color:#60A5FA;
-    text-shadow:0 0 10px #3B82F6;
+
+    color:#ffd700;
+
+
+    font-size:clamp(35px,6vw,65px);
+
+
+    text-align:center;
+
+
+    text-shadow:
+
+    0 0 10px gold,
+
+    0 0 30px orange,
+
+    0 0 50px red;
+
 }
+
+
+
+
+.Container{
+
+    width:90%;
+
+    max-width:450px;
+
+
+    padding:30px;
+
+
+    background:rgba(0,0,0,.65);
+
+
+    border:3px solid #00e5ff;
+
+
+    border-radius:25px;
+
+
+    box-shadow:
+
+    0 0 25px cyan,
+
+    0 0 60px #004cff;
+
+
+    text-align:center;
+
+}
+
+
+
+
+h2{
+
+    color:#00e5ff;
+
+
+    font-size:35px;
+
+
+    text-shadow:
+
+    0 0 15px cyan;
+
+}
+
+
+
 
 p{
-    color:#E2E8F0;
+
+    color:white;
+
+
+    font-size:20px;
+
 }
 
-label{
-    color:#F8FAFC;
+
+
+
+input{
+
+
+    width:90%;
+
+
+    max-width:350px;
+
+
+    height:45px;
+
+
+    margin:8px;
+
+
+    padding-left:15px;
+
+
+    border-radius:12px;
+
+
+    border:2px solid #00e5ff;
+
+
+    background:#111827;
+
+
+    color:white;
+
+
+    font-size:18px;
+
+
+    outline:none;
+
 }
 
-h1,h2{
-  text-align: center;
-      color:#60A5FA;
-    text-shadow:0 0 10px #3B82F6;
+
+
+
+input:focus{
+
+
+    box-shadow:
+
+    0 0 20px cyan;
+
+}
+
+
+
+
+button{
+
+
+    width:200px;
+
+
+    height:60px;
+
+
+    margin-top:20px;
+
+
+    border-radius:15px;
+
+
+    border:3px solid white;
+
+
+    background:
+
+    linear-gradient(180deg,#00e5ff,#0055ff);
+
+
+    color:white;
+
+
+    font-size:25px;
+
+
+    font-weight:bold;
+
+
+    cursor:pointer;
+
+
+    box-shadow:
+
+    0 0 20px cyan;
+
+
+    transition:.3s;
+
+
+    animation:pulsar 2s infinite;
+
+}
+
+
+
+
+button:hover{
+
+
+    transform:scale(1.1);
+
+
+    background:
+
+    linear-gradient(180deg,#ffd700,#ff4500);
+
+
+    box-shadow:
+
+    0 0 40px gold;
+
+}
+
+
+
+
+@keyframes pulsar{
+
+
+50%{
+
+    transform:scale(1.05);
+
+}
+
 }

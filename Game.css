@@ -1,103 +1,241 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
     background:#0b1020;
+    min-height:100vh;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    touch-action: manipulation;
-    user-select: none;
-    
-}
-h1{
-  text-align: center;
-  color:  #ffd700;
-    font-size: 3vw;
-}
-h2{
-  color:  #00e5ff;
-    font-size: 3vw;
-}
-h3{
-  color: #ff9800;
-    font-size: 3vw;
-}
-#h3{
-  color: #ff9800;
-    font-size: 3vw;
-}
-#moedas,h3{
-color: #F4C430;
-text-shadow: 0 0 8px #FFD700;
-    font-size: 3vw;
+.Container2{
+    width:95%;
+    max-width:900px;
+    margin:0 auto;
+    padding:20px;
 }
 
-button{
-
-  width: 100px;
-  height: 100px;
-  max-width: 20vw;
-  max-height: 20vw;
- 
- background: #252a34;
-color: white;
-border: 2px solid #00e5ff;
-
- 
+.Container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:25px;
+    width:100%;
 }
-button:hover{
-  background: #00e5ff;
-color: black;
-box-shadow: 0 0 20px #00e5ff;
-}
+
+.Meio,
 .meio{
-  text-align: center;
-  margin-top: 100px ;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+    width:100%;
 }
-img{
-  width: 110px;
-  height: 110px;
-  max-width: 25vw;
-  max-height: 25vw;
+
+h1{
+    text-align:center;
+    color:#ffd700;
+    font-size:clamp(30px,5vw,55px);
+    margin-bottom:15px;
 }
-.alinhar{
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  background: linear-gradient(background: #1a237e;);
+
+h2{
+    color:#00e5ff;
+    font-size:clamp(22px,3.5vw,38px);
+    margin-top:8px;
 }
-#apenasp{
-  text-align: center;
-  color: #005eff;
-    font-size: 3vw;
+
+h3{
+    color:#ff9800;
+    font-size:clamp(18px,3vw,30px);
+    margin-top:8px;
+}
+
+#h3{
+    color:#ff9800;
+}
+
+#moedas{
+    color:#F4C430;
+    text-shadow:0 0 8px #FFD700;
 }
 
 p{
-  color: red;
-    font-size: 3vw;
+    color:red;
+    font-size:clamp(16px,2.5vw,24px);
 }
+
+#apenasp{
+    text-align:center;
+    color:#005eff;
+    font-size:clamp(22px,3vw,32px);
+}
+
+hr{
+    margin:15px 0;
+    border:1px solid #333;
+    width:100%;
+}
+
+button{
+    width:clamp(90px,20vw,150px);
+    height:clamp(60px,12vw,90px);
+
+    background:#252a34;
+    color:white;
+
+    border:2px solid #00e5ff;
+    border-radius:10px;
+
+    font-size:clamp(14px,2vw,20px);
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
 button:hover{
-  background-color: green;
+    background:#00e5ff;
+    color:black;
+    box-shadow:0 0 20px #00e5ff;
+    transform:scale(1.05);
 }
 
 
-.Exclusivo{
+.Exclusivo {
+    border:3px solid #00ffff;
+    border-radius:15px;
 
-border:3px solid #00ffff;
-border-radius:15px;
-background:linear-gradient(180deg,#1b263b,#0d1b2a);
-color:white;
-cursor:pointer;
-transition:0.3s;
-box-shadow:0 0 15px cyan;
+
+
+    background:linear-gradient(180deg,#1b263b,#0d1b2a);
+
+    color:white;
+    cursor:pointer;
+
+    transition:0.3s;
+
+    box-shadow:0 0 15px cyan;
+}
+
+
+.Exclusivo:hover{
+    transform:scale(1.08);
+
+    border-color:#FFD700;
+
+    box-shadow:
+    0 0 25px #FFD700,
+    0 0 40px cyan;
+
+    background:linear-gradient(180deg,#2a3f5f,#102542);
+}
+
+
+img{
+    width:clamp(70px,15vw,120px);
+    height:auto;
+    object-fit:contain;
+}
+
+
+.alinhar{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    width:100%;
+
+    padding:20px;
+
+    gap:10px;
+
+    background:linear-gradient(to bottom,#1a237e,#0b1020);
+
+    border-radius:15px;
+}
+@media (max-width:600px){
+
+    .Container2{
+        width:100%;
+        padding:10px;
+    }
+
+    .Meio,
+    .meio{
+        gap:10px;
+    }
+
+    button{
+        width:90%;
+        max-width:250px;
+    }
+
+    h1{
+        margin-top:10px;
+    }
+
+    .alinhar{
+        padding:10px;
+    }
 
 }
 
-Exclusivo:hover{
 
-transform:scale(1.08);
-border-color:#FFD700;
-box-shadow:0 0 25px #FFD700,0 0 40px cyan;
-background:linear-gradient(180deg,#2a3f5f,#102542);
+@media (min-width:601px) and (max-width:1024px){
 
+    .Container2{
+        max-width:800px;
+    }
+
+    button{
+        width:130px;
+    }
+
+}
+
+
+@media (min-width:1025px){
+
+    .Container2{
+        max-width:1000px;
+    }
+
+    button{
+        width:150px;
+    }
+
+}
+
+
+.btnMusica{
+    position: fixed;
+    top: 15px;
+    right: 15px;
+
+    width: auto;
+    height: auto;
+
+    padding: 8px 12px;
+
+    background: rgba(0, 0, 0, 0.90);
+    color: white;
+
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 10px;
+
+    font-size: 14px;
+    cursor: pointer;
+
+    z-index: 9999;
+
+    transition: 0.2s;
+}
+
+.btnMusica:hover{
+    transform: scale(1.08);
+    
 }

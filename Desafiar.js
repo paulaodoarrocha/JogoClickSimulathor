@@ -28,8 +28,9 @@ const escalaBase = {
   Sxvg: 25,
   Spvg: 26,
   Nvvg: 27,
-  Qrvdg: 28,
-  Trvg: 29
+  Uqnd: 28,
+  Qrdvg: 29,
+  Trvg: 30
 }
 
 function converterPoder(valor, escala) {
@@ -41,38 +42,38 @@ function formatarNumero(num) {
   num = Number(num) || 0
 
   const lista = [
-    ["K", 1e3],
-    ["M", 1e6],
-    ["B", 1e9],
-    ["T", 1e12],
-    ["Qa", 1e15],
-    ["Qi", 1e18],
-    ["Sx", 1e21],
-    ["Sp", 1e24],
-    ["Oc", 1e27],
-    ["No", 1e30],
-    ["Dc", 1e33],
-    ["Ud", 1e36],
-    ["Dd", 1e39],
-    ["Td", 1e42],
-    ["Qad", 1e45],
-    ["Qid", 1e48],
-    ["Sxd", 1e51],
-    ["Spd", 1e54],
-    ["Ocvg", 1e57],
-    ["Nvgt", 1e60],
-    ["Utvg", 1e63],
-    ["Tvg", 1e66],
-    ["Qavg", 1e69],
-    ["Qivg", 1e72],
-    ["Sxvg", 1e75],
-    ["Spvg", 1e78],
-    ["Nvvg", 1e84],
-    ["Qrvdg", 1e87],
-    ["Trvg", 1e90]
-    
+["K",1e3],
+["M",1e6],
+["B",1e9],
+["T",1e12],
+["Qa",1e15],
+["Qi",1e18],
+["Sx",1e21],
+["Sp",1e24],
+["Oc",1e27],
+["No",1e30],
+["Dc",1e33],
+["Ud",1e36],
+["Dd",1e39],
+["Td",1e42],
+["Qad",1e45],
+["Qid",1e48],
+["Sxd",1e51],
+["Spd",1e54],
+["Ocvg",1e57],
+["Nvgt",1e60],
+["Utvg",1e63],
+["Tvg",1e66],
+["Qavg",1e69],
+["Qivg",1e72],
+["Sxvg",1e75],
+["Spvg",1e78],
+["Nvvg",1e81],
+["Uqnd",1e84],
+["Qrdvg",1e87],
+["Trvg",1e90]
 
-  ]
+]
 
   for (let i = lista.length - 1; i >= 0; i--) {
     if (num >= lista[i][1]) {
@@ -125,7 +126,7 @@ function atualizarTopo() {
   document.getElementById("Boss").innerHTML = bossNome
   document.getElementById("Bosspower").innerHTML = bossPowerText || ("⚡" + formatarNumero(bossPower) + " Power")
   document.getElementById("BossAtual").src = bossImagem
-  document.getElementById("poder").innerHTML = formatarNumero(poder)
+  document.getElementById("poder").innerHTML = formatarNumero(poder) + " Power"
 }
 
 function atualizarBarra() {
@@ -177,6 +178,13 @@ function calcularDanos() {
   return { danoJogador, danoBoss }
 }
 
+let loser = new Audio("Loser.mp3")
+let coins = new Audio("Coins.mp3")
+let win = new Audio("Win.mp3")
+win.volume = 0.3
+loser.volume = 0.5
+coins.volume = 0.6
+
 function encerrarLuta(vitoria) {
   lutaEncerrada = true
   lutaAtiva = false
@@ -189,14 +197,19 @@ function encerrarLuta(vitoria) {
   btnLutar.disabled = true
 
   if (vitoria) {
+    coins.play()
+    win.play()
     alert("Boss derrotado!")
-
+    
    ganharMoedas(bossOuro)
    
   droparEspada(bossEspada, bossChanceEspada)
   }
   else {
+
+
     alert("Você perdeu!")
+    
   }
 
   localStorage.removeItem("BossNome")
@@ -205,7 +218,8 @@ function encerrarLuta(vitoria) {
   localStorage.removeItem("BossImagem")
   localStorage.removeItem("BossPowerText")
 
-  window.location.href = "batalha.html"
+
+    window.location.href = "batalha.html"
 }
 
 function checarFim() {

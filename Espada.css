@@ -1,148 +1,334 @@
 body{
 
-background:radial-gradient(circle at top,#162447,#090b15,#030305);
-color:white;
-font-family:Arial,Helvetica,sans-serif;
-margin:0;
+    background:linear-gradient(135deg,#050505,#111827,#000);
+
+    min-height:100vh;
+
+    margin:0;
+
+    text-align:center;
+
+    font-family:Arial;
 
 }
+
 
 h1{
 
-text-align:center;
-font-size:48px;
-color:#FFD700;
+    color:#ffd700;
 
-text-shadow:
-0 0 10px gold,
-0 0 25px orange,
-0 0 40px yellow;
+    font-size:clamp(30px,5vw,55px);
 
-margin:30px;
+    text-shadow:
 
-}
+    0 0 10px gold,
 
-.img1,.img2,.img3,.img4,.img5,.img6,.img7,.img8,.img9{
-
-width:340px;
-
-margin:35px auto;
-
-padding:18px;
-
-text-align:center;
-
-border-radius:22px;
-
-background:linear-gradient(180deg,#1a2338,#0c1325);
-
-border:2px solid #00ffff;
-
-box-shadow:
-0 0 15px cyan,
-0 0 35px rgba(0,255,255,.35);
-
-transition:.35s;
+    0 0 30px orange;
 
 }
 
-.img1:hover,.img2:hover,.img3:hover,.img4:hover,.img5:hover,.img6:hover,.img7:hover,.img8:hover,.img9:hover{
 
-transform:translateY(-12px) scale(1.04);
 
-border-color:#FFD700;
+.Container{
 
-box-shadow:
-0 0 20px gold,
-0 0 35px cyan,
-0 0 70px #00ffff;
+    width:95%;
 
-}
+    max-width:1200px;
 
-img{
+    margin:auto;
 
-width:100%;
-height:240px;
 
-object-fit:cover;
+    display:flex;
 
-border-radius:18px;
+    justify-content:center;
 
-border:3px solid white;
+    flex-wrap:wrap;
 
-transition:.35s;
-
-box-shadow:
-0 0 20px rgba(255,255,255,.45);
+    gap:30px;
 
 }
 
-img:hover{
 
-transform:scale(1.05);
 
-box-shadow:
-0 0 20px white,
-0 0 35px cyan,
-0 0 60px #00ffff;
+.img1,
+.img2,
+.img3,
+.img4,
+.img5,
+.img6,
+.img7,
+.img8,
+.img9{
+
+
+    width:230px;
+
+    padding:20px;
+
+
+    background:rgba(0,0,0,.5);
+
+
+    border-radius:20px;
+
+
+    transition:.3s;
 
 }
 
-p{
 
-font-size:30px;
 
-font-weight:bold;
+.Container img{
 
-margin-top:18px;
+    width:180px;
 
-color:#FFD700;
+    height:180px;
 
-text-shadow:
-0 0 8px gold,
-0 0 18px orange;
+    object-fit:contain;
+
+    transition:.5s;
 
 }
+
+
+
+.Container img:hover{
+
+    transform:scale(1.15) rotate(5deg);
+
+}
+
+
+
+
+.Container p{
+
+    color:white;
+
+    font-size:20px;
+
+    text-shadow:0 0 10px white;
+
+}
+
+
 
 button{
 
-margin-top:15px;
+    width:160px;
 
-padding:10px 22px;
+    height:55px;
 
-font-size:22px;
 
-font-weight:bold;
+    border-radius:15px;
 
-color:white;
 
-background:linear-gradient(180deg,#1d4ed8,#172554);
+    color:white;
 
-border:2px solid cyan;
+    background:#111;
 
-border-radius:14px;
 
-cursor:pointer;
+    border:2px solid white;
 
-transition:.3s;
 
-box-shadow:
-0 0 12px cyan,
-0 0 25px rgba(0,255,255,.5);
+    font-size:20px;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
 
 }
 
+
+
+/* COMUM */
+
+.img1{
+
+    border:3px solid #aaa;
+
+    box-shadow:0 0 15px #aaa;
+
+}
+
+
+/* INCOMUM */
+
+.img2{
+
+    border:3px solid #00ff00;
+
+    box-shadow:0 0 20px #00ff00;
+
+}
+
+
+/* RARA */
+
+.img3{
+
+    border:3px solid #00bfff;
+
+    box-shadow:0 0 25px #00bfff;
+
+}
+
+
+/* EPICA */
+
+.img4{
+
+    border:3px solid #8b5cf6;
+
+    box-shadow:0 0 30px #8b5cf6;
+
+}
+
+
+
+/* LENDARIA */
+
+.img5{
+
+    border:3px solid gold;
+
+    box-shadow:0 0 35px gold;
+
+    animation:brilhar 2s infinite;
+
+}
+
+
+
+/* MYTHICAL */
+
+.img6{
+
+    border:3px solid red;
+
+    box-shadow:
+
+    0 0 35px red,
+
+    0 0 60px black;
+
+    animation:brilhar 1.5s infinite;
+
+}
+
+
+
+/* SECRET */
+
+.img7{
+
+    border:3px solid #ff00ff;
+
+    box-shadow:
+
+    0 0 40px #ff00ff,
+
+    0 0 70px cyan;
+
+}
+
+
+
+/* CELESTIAL */
+
+.img8{
+
+    border:3px solid white;
+
+    box-shadow:
+
+    0 0 50px white,
+
+    0 0 80px purple;
+
+}
+
+
+
+/* DIVINO */
+
+.img9{
+
+    border:3px solid red;
+
+
+    background:
+
+    linear-gradient(
+
+    135deg,
+
+    #000,
+
+    #300000
+
+    );
+
+
+    box-shadow:
+
+    0 0 40px red,
+
+    0 0 80px orange,
+
+    0 0 120px black;
+
+
+    animation:divino 2s infinite;
+
+}
+
+
+
+
+@keyframes brilhar{
+
+    50%{
+
+        transform:scale(1.03);
+
+    }
+
+}
+
+
+
+@keyframes divino{
+
+    50%{
+
+        transform:scale(1.05);
+
+        filter:brightness(1.5);
+
+    }
+
+}
+
+
+
+.img9 button{
+
+    background:red;
+
+    box-shadow:0 0 20px red;
+
+}
+
+
 button:hover{
 
-transform:scale(1.08);
+    transform:scale(1.1);
 
-background:linear-gradient(180deg,#2563eb,#1e3a8a);
+    background:white;
 
-border-color:#FFD700;
-
-box-shadow:
-0 0 15px gold,
-0 0 30px cyan,
-0 0 45px #00ffff;
+    color:black;
 
 }

@@ -10,8 +10,9 @@ function formatarNumero(num) {
   num = Number(num) || 0
 
   if (num >= 1e90) return (num / 1e90).toFixed(1).replace(".0", "") + "Trvg"
-  if (num >= 1e87) return (num / 1e87).toFixed(1).replace(".0", "") + "Utvg2"
-  if (num >= 1e84) return (num / 1e84).toFixed(1).replace(".0", "") + "Nvvg"
+  if (num >= 1e87) return (num / 1e87).toFixed(1).replace(".0", "") + "Qrdvg"
+  if (num >= 1e84) return (num / 1e84).toFixed(1).replace(".0", "") + "Uqnd"
+  if (num >= 1e81) return (num / 1e81).toFixed(1).replace(".0", "") + "Nvvg"
   if (num >= 1e78) return (num / 1e78).toFixed(1).replace(".0", "") + "Spvg"
   if (num >= 1e75) return (num / 1e75).toFixed(1).replace(".0", "") + "Sxvg"
   if (num >= 1e72) return (num / 1e72).toFixed(1).replace(".0", "") + "Qivg"
@@ -44,28 +45,28 @@ function formatarNumero(num) {
 
 function atualizarRank(){
 
-if(poder >= 1e95){
+if(poder >= 1e9){
 
 document.getElementById("rank").innerHTML =
 '<span style="color:#fff;text-shadow:0 0 5px red,0 0 10px orange,0 0 15px yellow,0 0 20px lime,0 0 25px cyan,0 0 30px blue,0 0 35px magenta;">Infinito ∞ ☠️</span>'
 
 }
 
-else if(poder >= 1e90){
+else if(poder >= 1e87){
 
 document.getElementById("rank").innerHTML =
 '<span style="color:#fff;text-shadow:0 0 5px #ff0000,0 0 10px #ff3300,0 0 20px #ff6600,0 0 30px #ffff00;">Imperador Universal 👑</span>'
 
 }
 
-else if(poder >= 1e85){
+else if(poder >= 1e84){
 
 document.getElementById("rank").innerHTML =
 '<span style="color:#fff;text-shadow:0 0 5px cyan,0 0 10px #00ffff,0 0 20px #0088ff,0 0 30px #9400D3;">Supremo Final 🌌</span>'
 
 }
 
-else if(poder >= 1e80){
+else if(poder >= 1e78){
 
 document.getElementById("rank").innerHTML =
 '<span style="color:#fff;text-shadow:0 0 5px violet,0 0 10px magenta,0 0 20px deeppink,0 0 30px cyan;">Divindade Absoluta ⚡</span>'
@@ -267,16 +268,16 @@ function atualizarTela() {
 }
 
 const bosses = [
-  { nome: "Benimaru", valor: 100, escala: "K", imagem: "benimaru.gif", texto: "100K Power", ouro: 10, espada: 1, chanceEspada: 50},
-  { nome: "Arthur", valor: 122, escala: "B", imagem: "dragon.gif", texto: "122B Power", ouro: 100, espada: 2, chanceEspada: 40},
-  { nome: "Poderosa", valor: 999, escala: "T", imagem: "magia.gif", texto: "999T Power", ouro: 1000, espada: 3, chanceEspada: 30},
-  { nome: "Shadow", valor: 112, escala: "Qi", imagem: "shadow.gif", texto: "112Qi Power", ouro: 10000, espada: 4, chanceEspada: 20},
-  { nome: "WangLing", valor: 1, escala: "Sp", imagem: "ling.gif", texto: "1Sp Power", ouro: 100000, espada: 5, chanceEspada: 15},
-  { nome: "Goku", valor: 539, escala: "Ud", imagem: "goku.gif", texto: "539Ud Power", ouro: 1000000, espada: 6, chanceEspada:10},
-  { nome: "Saber", valor: 55, escala: "Qad", imagem: "saber.gif", texto: "Qad Power", ouro: 10000000, espada: 7, chanceEspada: 7},
-  { nome: "Megumi", valor: 999, escala: "Sxd", imagem: "megumi.gif", texto: "999Sxd Power", ouro: 100000000, espada: 8, chanceEspada: 5},
-    { nome: "WangFinalBossTrueForm💀", valor: 999, escala: "Utvg", imagem: "wang.gif", texto: "67Utvg Power", ouro: 1000000000, espada: 9, chanceEspada: 1},
-      { nome: "PaulaoDopenu", valor: 999, escala: "Trvg", imagem: "Paulo.jpg", texto: "999Trvg Power", ouro: 10000000000}
+  { nome: "Benimaru", valor: 100, escala: "K", imagem: "benimaru.gif", texto: "500K Power", ouro: 10, espada: 1, chanceEspada: 50},
+  { nome: "Arthur", valor: 122, escala: "T", imagem: "dragon.gif", texto: "100T Power", ouro: 100, espada: 2, chanceEspada: 40},
+  { nome: "Poderosa", valor: 999, escala: "Qi", imagem: "magia.gif", texto: "999Qi Power", ouro: 1000, espada: 3, chanceEspada: 30},
+  { nome: "Shadow", valor: 112, escala: "Oc", imagem: "shadow.gif", texto: "777Oc Power", ouro: 10000, espada: 4, chanceEspada: 20},
+  { nome: "WangLing", valor: 1, escala: "Dd", imagem: "ling.gif", texto: "55Dd Power", ouro: 100000, espada: 5, chanceEspada: 15},
+  { nome: "Goku", valor: 539, escala: "Sxd", imagem: "goku.gif", texto: "22Sxd Power", ouro: 1000000, espada: 6, chanceEspada:10},
+  { nome: "Saber", valor: 55, escala: "Nvgt", imagem: "saber.gif", texto: "99Nvgt Power", ouro: 10000000, espada: 7, chanceEspada: 7},
+  { nome: "Megumi", valor: 999, escala: "Sxvg", imagem: "megumi.gif", texto: "999Sxvg Power", ouro: 100000000, espada: 8, chanceEspada: 5},
+    { nome: "WangFinalBossTrueForm💀", valor: 999, escala: "Sxvg", imagem: "wang.gif", texto: "67Spvg Power", ouro: 1000000000, espada: 9, chanceEspada: 1},
+      { nome: "PaulaoDopenu", valor: 999, escala: "Trvg", imagem: "Paulo.jpg", texto: "999Trvg Power", ouro: 10000000000, espada: 9, chanceEspada: 10}
 ]
 
 const escalaBase = {
@@ -308,7 +309,7 @@ const escalaBase = {
   Sxvg: 25,
   Spvg: 26,
   Nvvg: 27,
-  Utvg2: 28,
+  Qrdvg: 28,
   Trvg: 29
 }
 
@@ -340,3 +341,22 @@ function desafiarBoss(id) {
 }
 
 atualizarTela()
+
+
+
+let bossesMusic = new Audio("BossesMusic.mp3")
+bossesMusic.volume = 0.4
+bossesMusic.loop = true 
+
+function controlarMusicaBosses(){
+  if(bossesMusic.paused){
+    bossesMusic.play()
+    document.getElementById("BossesMusic").innerHTML = "On"
+  }
+  else{
+    bossesMusic.pause()
+    document.getElementById("BossesMusic").innerHTML = "Off"
+  }
+}
+
+

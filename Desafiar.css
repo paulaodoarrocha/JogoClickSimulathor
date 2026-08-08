@@ -1,179 +1,264 @@
 body{
-    background: linear-gradient(180deg,#111827,#0b1020);
-    margin: 0;
+    background:linear-gradient(180deg,#111827,#0b1020);
+    margin:0;
+    min-height:100vh;
 }
-* {
-    touch-action: manipulation;
-    user-select: none;
-}
+
+
 .Arena{
-    width: 90%;
-    height: 820px;
 
-    margin: 30px auto;
+    width:95%;
+    max-width:1000px;
 
-    background: #111827;
+    min-height:800px;
 
-    border: 4px solid #00e5ff;
-    border-radius: 20px;
-    box-shadow: 0 0 25px #00e5ff;
+    margin:30px auto;
 
-    position: relative;
-    overflow: hidden;
+    background:#111827;
+
+    border:4px solid #00e5ff;
+
+    border-radius:20px;
+
+    box-shadow:0 0 25px #00e5ff;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    overflow:hidden;
+
+    padding:20px;
+    
+    gap:10px;
+    justify-content:center;
+
+}
+
+boss{
+  gap: 5px;
 }
 
 .boss,
 .player{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
 }
 
-img{
-    border: 3px solid #00e5ff;
-    border-radius: 12px;
-    box-shadow: 0 0 20px #00e5ff;
-}
 
 #BossAtual{
-    width: 413px;
-    position: relative;
-    top: 120px;
-    z-index: 2;
+
+    width:min(70vw,300px);
+
+    border:3px solid #00e5ff;
+
+    border-radius:12px;
+
+    box-shadow:0 0 20px #00e5ff;
+
 }
+
 
 #Slime{
-    width: 413px;
-    height: 250px;
 
-    position: relative;
-     bottom: 25px;
+    width:min(70vw,300px);
 
-    z-index: 1;
+    height:auto;
+
+    border:3px solid #00e5ff;
+
+    border-radius:12px;
+
+    box-shadow:0 0 20px #00e5ff;
+
 }
 
-#Rimuru{
-    position: relative;
-    bottom: 300px;
-    z-index: 40;
+
+#Boss{
+
+    color:#ff2b2b;
+     margin: 5px;
+     
+    text-shadow:
+    0 0 8px red,
+    0 0 18px darkred;
+
 }
 
-#boss{
-    position: relative;
-    bottom: 100px;
-
-    color: #ff2b2b;
-    z-index: 5;
-}
 
 #Bosspower{
-    position: relative;
-    bottom: 20px;
-     right: 110px;
+     margin: 0;
+     font-size: 24px;
      
-    color: #ff5757;
-    z-index: 5;
+    color:#ff5757;
+
+    font-size:25px;
+
+    text-shadow:0 0 12px red;
+
 }
 
+
+#Rimuru{
+     margin: 5px;
+    text-align:center;
+
+}
 .barra{
-    width: 90%;
-    height: 30px;
 
-    display: flex;
+    margin: 15px auto;
 
-    margin: -50px auto 20px auto;
+    width:90%;
+    max-width:700px;
 
-    border: 3px solid white;
-    border-radius: 30px;
-    box-shadow: 0 0 18px white;
+    height:30px;
 
-    overflow: hidden;
+    display:flex;
 
-    position: relative;
-    z-index: 20;
+    margin:30px auto;
+
+    border:3px solid white;
+
+    border-radius:30px;
+
+    box-shadow:0 0 18px white;
+
+    overflow:hidden;
+
 }
+
 
 .verde{
-    width: 50%;
-    background: #00d84a;
+
+    width:50%;
+
+    background:#00d84a;
+
 }
+
 
 .vermelho{
-    width: 50%;
-    background: #b30000;
+
+    width:50%;
+
+    background:#b30000;
+
 }
+
 
 #btnLutar{
-    position: absolute;
 
-    left: 50%;
-    transform: translateX(-50%);
+    position:static;
 
-    bottom: 30px;
+    margin:20px auto;
 
-    z-index: 30;
 }
+
 
 button{
-    width: 180px;
-    height: 50px;
 
-    background: linear-gradient(180deg,#ff3c3c,#a80000);
+    width:min(80vw,220px);
 
-    color: white;
+    height:55px;
 
-    border: 2px solid white;
-    border-radius: 12px;
 
-    font-size: 22px;
-    font-weight: bold;
+    background:linear-gradient(180deg,#ff3c3c,#a80000);
 
-    cursor: pointer;
 
-    box-shadow: 0 0 15px red;
+    color:white;
 
-    transition: .2s;
+
+    border:2px solid white;
+
+    border-radius:12px;
+
+
+    font-size:22px;
+
+    font-weight:bold;
+
+
+    cursor:pointer;
+
+
+    box-shadow:0 0 15px red;
+
+
+    transition:.2s;
+
 }
+
 
 button:hover{
-    transform: translateX(-50%) scale(1.08);
-    box-shadow: 0 0 30px red;
+
+    transform:scale(1.08);
+
+    box-shadow:0 0 30px red;
+
 }
+
 
 button:active{
-    transform: translateX(-50%) scale(.95);
+
+    transform:scale(.95);
 }
 
+.player{
+    gap:5px;
+}
+
+#poder{
+     margin: 0;
+     font-size:24px;
+    color:#00e5ff;
+
+    font-size:28px;
+
+    text-shadow:
+    0 0 10px #00e5ff,
+    0 0 20px cyan;
+
+}
+
+
+#Rimuru{
+
+    font-size:clamp(25px,5vw,45px);
+
+    margin:10px;
+
+}
+
+
 h2{
+
     color:#ff2b2b;
+
+    text-align:center;
 
     text-shadow:
     0 0 8px red,
     0 0 18px red,
     0 0 35px darkred;
+
 }
+
 
 p{
+
     color:#ff5757;
 
-    font-size:32px;
+    font-size:clamp(20px,4vw,32px);
+
+    text-align:center;
 
     text-shadow:0 0 12px red;
-}
 
-#poder{
-    position: relative;
-    bottom: 167px;
-    left: 150px;
-    z-index: 10;
-}
-
-#click{
-    position: relative;
-    z-index: 30;
-}
-
-#boss{
-  position: relative;
-  bottom: 170px;
 }
