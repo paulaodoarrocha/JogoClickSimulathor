@@ -1,0 +1,72 @@
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Nova senha</title>
+
+
+</head>
+
+<body>
+
+
+<h1>Redefinir senha</h1>
+
+<input
+    type="password"
+    id="novaSenha"
+    placeholder="Digite a nova senha">
+
+<button id="botaoSalvar">Salvar nova senha</button>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+    const SUPABASE_URL = "https://efjqtwzyfxrtbqunwezd.supabase.co"
+
+    const SUPABASE_KEY = "sb_publishable_XcL3QhuOLyieluwevdLNJg_8IhVrIQj"
+
+    const cliente = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    )
+
+
+    document.getElementById("botaoSalvar").addEventListener("click", async function() {
+
+        const novaSenha = document.getElementById("novaSenha").value
+
+        if (novaSenha.length < 9) {
+            alert("A senha precisa ter pelo menos 9 caracteres!")
+            return
+        }
+
+        const resultado = await cliente.auth.updateUser({
+            password: novaSenha
+        })
+
+        if (resultado.error) {
+            alert(
+                "Erro ao alterar senha:\n\n" +
+                resultado.error.message
+            )
+            return
+        }
+
+        alert("Senha alterada com sucesso!")
+
+        window.location.href = "index.html"
+
+    })
+
+</script>
+
+
+</body>
+
+</html>
