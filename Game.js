@@ -1,4 +1,4 @@
-
+localStorage.Clear()
 let poder = (Number(localStorage.getItem("poder")) || 0)
 
 let ganho = Number(localStorage.getItem("ganho")) || 1
