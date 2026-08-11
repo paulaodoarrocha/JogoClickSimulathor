@@ -1,4 +1,3 @@
-
 const escalaBase = {
   "": 0,
   K: 1,
@@ -76,9 +75,9 @@ function formatarNumero(num) {
 ]
 
   for (let i = lista.length - 1; i >= 0; i--) {
-    if (num >= lista[i][1]) {
-      return (num / lista[i][1]).toFixed(1).replace(".0", "") + lista[i][0]
-    }
+  if (num >= lista[i][1]) {
+  return (num / lista[i][1]).toFixed(1).replace(".0", "") + lista[i][0]
+  }
   }
 
   return Math.floor(num).toString()
@@ -113,14 +112,17 @@ const barraVermelha = document.querySelector(".vermelho")
 const btnLutar = document.getElementById("btnLutar")
 
 function atualizarTopo() {
+  // ✅ RECARREGA PODER SEMPRE
+  poder = Number(localStorage.getItem("poder")) || 0
+  
   if (!bossNome || !bossImagem || !bossPower) {
-    localStorage.removeItem("BossNome")
-    localStorage.removeItem("BossValor")
-    localStorage.removeItem("BossEscala")
-    localStorage.removeItem("BossImagem")
-    localStorage.removeItem("BossPowerText")
-    window.location.href = "batalha.html"
-    return
+  localStorage.removeItem("BossNome")
+  localStorage.removeItem("BossValor")
+  localStorage.removeItem("BossEscala")
+  localStorage.removeItem("BossImagem")
+  localStorage.removeItem("BossPowerText")
+  window.location.href = "batalha.html"
+  return
   }
 
   document.getElementById("Boss").innerHTML = bossNome
@@ -144,35 +146,35 @@ function calcularDanos() {
   let danoBoss = 5
 
   if (ratio >= 20) {
-    danoJogador = 90
-    danoBoss = 1
+  danoJogador = 90
+  danoBoss = 1
   } else if (ratio >= 8) {
-    danoJogador = 60
-    danoBoss = 1
+  danoJogador = 60
+  danoBoss = 1
   } else if (ratio >= 4) {
-    danoJogador = 40
-    danoBoss = 1
+  danoJogador = 40
+  danoBoss = 1
   } else if (ratio >= 2) {
-    danoJogador = 20
-    danoBoss = 2
+  danoJogador = 20
+  danoBoss = 2
   } else if (ratio >= 1.2) {
-    danoJogador = 10
-    danoBoss = 4
+  danoJogador = 10
+  danoBoss = 4
   } else if (ratio >= 0.8) {
-    danoJogador = 6
-    danoBoss = 5
+  danoJogador = 6
+  danoBoss = 5
   } else if (ratio >= 0.5) {
-    danoJogador = 3
-    danoBoss = 8
+  danoJogador = 3
+  danoBoss = 8
   } else if (ratio >= 0.2) {
-    danoJogador = 2
-    danoBoss = 20
+  danoJogador = 2
+  danoBoss = 20
   } else if (ratio >= 0.05) {
-    danoJogador = 1
-    danoBoss = 40
+  danoJogador = 1
+  danoBoss = 40
   } else {
-    danoJogador = 1
-    danoBoss = 90
+  danoJogador = 1
+  danoBoss = 90
   }
 
   return { danoJogador, danoBoss }
@@ -185,56 +187,61 @@ win.volume = 0.3
 loser.volume = 0.5
 coins.volume = 0.6
 
-function encerrarLuta(vitoria) {
-  lutaEncerrada = true
-  lutaAtiva = false
+async function encerrarLuta(vitoria) {
 
-  if (intervaloBoss) {
-    clearInterval(intervaloBoss)
-    intervaloBoss = null
-  }
+    lutaEncerrada = true
+    lutaAtiva = false
 
-  btnLutar.disabled = true
+    if (intervaloBoss) {
+        clearInterval(intervaloBoss)
+        intervaloBoss = null
+    }
 
-  if (vitoria) {
-    coins.play()
-    win.play()
-    alert("Boss derrotado!")
-    
-   ganharMoedas(bossOuro)
-   
-  droparEspada(bossEspada, bossChanceEspada)
-  }
-  else {
+    btnLutar.disabled = true
 
+    if (vitoria) {
 
-    alert("Você perdeu!")
-    
-  }
+        coins.play()
+        win.play()
 
-  localStorage.removeItem("BossNome")
-  localStorage.removeItem("BossValor")
-  localStorage.removeItem("BossEscala")
-  localStorage.removeItem("BossImagem")
-  localStorage.removeItem("BossPowerText")
+        alert("Boss derrotado!")
 
+        ganharMoedas(bossOuro)
+
+        droparEspada(bossEspada, bossChanceEspada)
+
+        await salvarMoedasSupabase().catch(erro => {
+  
+})
+    }
+    else {
+
+        loser.play()
+        alert("Você perdeu!")
+    }
+
+    localStorage.removeItem("BossNome")
+    localStorage.removeItem("BossValor")
+    localStorage.removeItem("BossEscala")
+    localStorage.removeItem("BossImagem")
+    localStorage.removeItem("BossPowerText")
 
     window.location.href = "batalha.html"
 }
 
 function checarFim() {
   if (progresso >= 100) {
-    progresso = 100
-    atualizarBarra()
-    encerrarLuta(true)
-    return true
+  progresso = 100
+  atualizarBarra()
+  encerrarLuta(true)
+  return true
   }
 
   if (progresso <= 0) {
-    progresso = 0
-    atualizarBarra()
-    encerrarLuta(false)
-    return true
+  progresso = 0
+  atualizarBarra()
+  encerrarLuta(false)
+  return true
   }
 
   return false
@@ -283,6 +290,7 @@ if(intervaloBoss){
 intervaloBoss = setInterval(ataqueBossAutomatico, 150)
 
 }
+
 function criarIntro() {
   btnLutar.disabled = true
   btnLutar.innerHTML = "PREPARA..."
@@ -313,16 +321,16 @@ function criarIntro() {
   let i = 0
 
   const timer = setInterval(() => {
-    i++
+ i++
 
-    if (i < passos.length) {
-      texto.innerHTML = passos[i]
-      return
-    }
+ if (i < passos.length) {
+  texto.innerHTML = passos[i]
+ return
+  }
 
-    clearInterval(timer)
-    overlay.remove()
-    iniciarLuta()
+  clearInterval(timer)
+  overlay.remove()
+  iniciarLuta()
   }, 800)
 }
 

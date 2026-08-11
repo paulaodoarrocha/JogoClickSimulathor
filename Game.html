@@ -7,10 +7,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jogo - Clique no certo</title>
+<title>Jogo - Clique </title>
 
 <link rel="stylesheet" href="Game.css">
-
+<link rel="stylesheet" href="Top10.css"
 </head>
 
 
@@ -22,7 +22,7 @@
 
 <hr>
 
-<h2>Poder: <span id="poder">poder</span></h2>
+<h2>Poder: <span id="poder">0</span></h2>
 
 <h3>Ganho: <span id="ganho">1</span></h3>
 
@@ -31,6 +31,9 @@
 <h2 id="proximoRank">Proximo Rank: </h2>
 
 <h2 id="h3">Rank: <span id="rank"></span></h2>
+
+<button onclick="carregarTop10()" class="btnTop10">🏆 Ver Top 10 🏆</button>
+<div id="top10"></div>
 
 <button id="GameMusic"class="btnMusica" onclick="controlarMusica()">🎵 Música</button>
 
@@ -145,11 +148,11 @@ R$: 67Ocvg
 
 </div>
 
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
 <script src="Moedas.js"></script>
-
 <script src="Game.js"></script>
-
+<script src="Top10.js"></script>
 </body>
 
 </html>

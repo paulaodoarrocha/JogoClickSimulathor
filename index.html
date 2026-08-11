@@ -1,45 +1,55 @@
+
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Jogo - Clique no certo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click Simulathor</title>
   <link rel="stylesheet" href="Login.css">
 </head>
 
 <body>
-  
-  <h1>bem vindo ao Click Simulathor</h1>
-  
+
+  <h1>Bem-vindo ao Click Simulathor</h1>
+
   <div class="Container">
-  <h2>Login</h2>
-    <form>
-    
-   <p>Nome: <input id="nome" type="text" placeholder="Digite seu nome" required ></p>
-    
-   <p>Email: <input id="email" type="email" placeholder="digite seu email" required> </p>
-   
-   <p>Senha: <input type="password" placeholder="digite sua senha" id="senha" required> </p>
-    
- 
+    <h2>Login</h2>
 
-  <button type="button" onclick="Verificar()">Entrar</button>
-  
 
-  
-  </form>
-    
+<form id="formLogin">
+
+  <p>
+    Nome:
+    <input id="nome" type="text" placeholder="Digite seu nome">
+  </p>
+
+  <p>
+    Email:
+    <input id="email" type="email" placeholder="Digite seu email" required>
+  </p>
+
+  <p>
+    Senha:
+    <input id="senha" type="password" placeholder="Digite sua senha" required>
+  </p>
+
+  <button type="submit">Entrar</button>
+
+  <button type="button" id="botaoCadastro">
+  Criar conta
+  </button>
+
+  <button type="button" id="botaoEsqueciSenha">
+  Esqueci minha senha
+  </button>
+
+</form>
+
+
   </div>
-  
-  
-<script src="login.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-
-
-
-
-
-
-
+  <script src="login.js"></script>
 
 </body>
 </html>

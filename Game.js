@@ -1,53 +1,45 @@
-
 let poder = (Number(localStorage.getItem("poder")) || 0)
 
 let ganho = Number(localStorage.getItem("ganho")) || 1
 
 let accEquipado = localStorage.getItem("accEquipado") || ""
 
-
 let petEquipado = Number(localStorage.getItem("petEquipado")) || 0
+
+
+
+
 
 let bonusPet = 1
 
 switch(petEquipado){
-
 case 1:
 bonusPet = 5
 break
-
 case 2:
 bonusPet = 9
 break
-
 case 3:
 bonusPet = 15
 break
-
 case 4:
 bonusPet = 30
 break
-
 case 5:
 bonusPet = 50
 break
-
 case 6:
 bonusPet = 90
 break
-
 case 7:
 bonusPet = 500
 break
-
 case 8:
 bonusPet = 1000
 break
-
 case 9:
 bonusPet = 5000
 break
-
 }
 
 let espadaEquipada = Number(localStorage.getItem("espadaEquipada")) || 0
@@ -55,54 +47,62 @@ let espadaEquipada = Number(localStorage.getItem("espadaEquipada")) || 0
 let bonusEspada = 1
 
 switch(espadaEquipada){
-
 case 1:
 bonusEspada = 5
 break
-
 case 2:
 bonusEspada = 10
 break
-
 case 3:
 bonusEspada = 20
 break
-
 case 4:
 bonusEspada = 40
 break
-
 case 5:
 bonusEspada = 60
 break
-
 case 6:
 bonusEspada = 80
 break
-
 case 7:
 bonusEspada = 500
 break
-
 case 8:
 bonusEspada = 2500
 break
-
 case 9:
 bonusEspada = 10000
 break
+}
 
+
+let bonusAcessorio = 1
+
+function atualizarBonusAcessorio() {
+  bonusAcessorio = 1
+
+  if (accEquipado === "prata") {
+    bonusAcessorio = 3
+  } else if (accEquipado === "ouro") {
+    bonusAcessorio = 6
+  } else if (accEquipado === "diamante") {
+    bonusAcessorio = 12
+  } else if (accEquipado === "ametista") {
+    bonusAcessorio = 30
+  } else if (accEquipado === "atomica") {
+    bonusAcessorio = 50
+  } else if (accEquipado === "antimateria") {
+    bonusAcessorio = 100
+  }
 }
 
 let bonusRank = 1
 
-
 function formatarNumero(num){
-
 num = Number(num) || 0
 
 const lista = [
-
 ["K",1e3],
 ["M",1e6],
 ["B",1e9],
@@ -133,182 +133,188 @@ const lista = [
 ["Uqnd",1e84],
 ["Qrdvg",1e87],
 ["Trvg",1e90]
-
 ]
 
-
 for(let i = lista.length - 1; i >= 0; i--){
-
 if(num >= lista[i][1]){
-
 return (num / lista[i][1])
 .toFixed(1)
 .replace(".0","")
 +
 lista[i][0]
-
 }
-
 }
 
 return Math.floor(num).toString()
-
 }
 
-
+let salvamentoPendente = false
+let timerSalvamento = null
 
 function salvar(){
+  localStorage.setItem("poder", poder)
+  localStorage.setItem("ganho", ganho)
+  localStorage.setItem("accEquipado", accEquipado)  
+  
+  if(typeof moedas !== "undefined"){
+    localStorage.setItem("moedas", moedas)
+  }
 
-localStorage.setItem("poder", poder)
-localStorage.setItem("ganho", ganho)
+  salvamentoPendente = true
 
+  if(timerSalvamento){
+     return
+  }
+
+  timerSalvamento = setTimeout(async function(){
+
+    timerSalvamento = null
+
+    if(!salvamentoPendente){
+      return
+    }
+
+    salvamentoPendente = false
+
+    const resultado = await cliente.auth.getUser()
+
+    if(resultado.error || !resultado.data.user){
+      return
+    }
+
+    const userId = resultado.data.user.id
+
+    const { data, error } = await cliente
+      .from("inventario")
+      .update({
+          poder: Number(poder) || 0,
+          moedas: typeof moedas !== "undefined"
+              ? Number(moedas) || 0
+              : Number(localStorage.getItem("moedas")) || 0,
+          acessorio: accEquipado,
+          ganho: ganho
+      })
+      .eq("user_id", userId)
+      .select()
+
+    if(error){
+      salvamentoPendente = true
+      console.error("Erro ao salvar progresso:", error)
+      alert("Erro ao salvar progresso:\n\n" + error.message)
+    } else if(!data || data.length === 0){
+      salvamentoPendente = true
+      alert("O jogo não conseguiu salvar (bloqueado por permissão). Nenhuma linha foi alterada.")
+    }
+
+  }, 1000)
 }
 
-
-
 function calcularBonusRank(){
-
 if(poder >= 1e90){
 bonusRank = 1e80
 }
-
 else if(poder >= 3e87){
 bonusRank = 6e76
 }
-
 else if(poder >= 3e84){
 bonusRank = 2e74
 }
-
 else if(poder >= 3e81){
 bonusRank = 2e72
 }
-
 else if(poder >= 3e78){
 bonusRank = 3e70
 }
-
-
 else if(poder >= 3e75){
 bonusRank = 1e66
 }
-
 else if(poder >= 3e72){
 bonusRank = 5e64
 }
-
 else if(poder >= 6e69){
 bonusRank = 1e62
 }
-
 else if(poder >= 6e66){
 bonusRank = 5e58
 }
-
 else if(poder >= 6e63){
 bonusRank = 9e55
 }
-
 else if(poder >= 5e60){
 bonusRank = 9e52
 }
-
 else if(poder >= 4e57){
 bonusRank = 7e50
 }
-
 else if(poder >= 9e54){
 bonusRank = 4e48
 }
-
 else if(poder >= 6e51){
 bonusRank = 6e45
 }
-
 else if(poder >= 3e48){
 bonusRank = 5e41
 }
-
 else if(poder >= 1e45){
 bonusRank = 2e39
 }
-
 else if(poder >= 1e42){
 bonusRank = 1e36
 }
-
 else if(poder >= 9e39){
 bonusRank = 1e33
 }
-
 else if(poder >= 2e36){
 bonusRank = 5e31
 }
-
 else if(poder >= 9e33){
 bonusRank = 3e28
 }
-
 else if(poder >= 3e30){
 bonusRank = 1e25
 }
-
 else if(poder >= 9e25){
 bonusRank = 1e23
 }
-
 else if(poder >= 7e22){
 bonusRank = 5e19
 }
-
 else if(poder >= 2e18){
 bonusRank = 9e16
 }
-
 else if(poder >= 3e16){
 bonusRank = 5e13
 }
-
 else if(poder >= 1e14){
 bonusRank = 1e12
 }
-
 else if(poder >= 9e13){
 bonusRank = 5e9
 }
-
 else if(poder >= 1e10){
 bonusRank = 1e8
 }
-
 else if(poder >= 2e8){
 bonusRank = 1e6
 }
-
 else if(poder >= 1e6){
 bonusRank = 5000
 }
-
 else if(poder >= 100000){
 bonusRank = 1000
 }
-
 else if(poder >= 10000){
 bonusRank = 200
 }
-
 else if(poder >= 500){
 bonusRank = 50
 }
-
 else if(poder >= 50){
 bonusRank = 10
 }
-
 else{
 bonusRank = 1
 }
-
 
 if(bonusRank > 9e99){
     bonusRank = 9e99
@@ -316,97 +322,54 @@ if(bonusRank > 9e99){
 }
 
 const ranks = [
-
 {poder:0, nome:"Noob 🤡", cor:"gray"},
-
 {poder:50, nome:"Iniciante 😊", cor:"#00ff7f"},
-
 {poder:500, nome:"Guerreiro ⚔️", cor:"lime"},
-
 {poder:10000, nome:"Pro 🥶", cor:"cyan"},
-
 {poder:100000, nome:"Veterano 🛡️", cor:"deepskyblue"},
-
 {poder:1e6, nome:"Elite 💎", cor:"blueviolet"},
-
 {poder:2e8, nome:"Hacker 😈", cor:"red"},
-
 {poder:1e10, nome:"Lorde ⚔️", cor:"crimson"},
-
 {poder:9e13, nome:"Imensurável 👽", cor:"lime"},
-
 {poder:1e14, nome:"Celestial ✨", cor:"violet"},
-
 {poder:3e16, nome:"Mestre Arcano 🔮", cor:"cyan"},
-
 {poder:2e18, nome:"Mítico 🌟", cor:"magenta"},
-
 {poder:7e22, nome:"Semideus ⚜️", cor:"gold"},
-
 {poder:9e25, nome:"Divino 🔱", cor:"orange"},
-
 {poder:3e30, nome:"Lendário 🏆", cor:"yellow"},
-
 {poder:9e33, nome:"Supremo 🌠", cor:"cyan"},
-
 {poder:2e36, nome:"Titã 🔥", cor:"lime"},
-
 {poder:9e39, nome:"Cósmico 🌌", cor:"purple"},
-
 {poder:1e42, nome:"Omega Ω", cor:"blueviolet"},
-
 {poder:1e45, nome:"Lorde Galáctico 🌌", cor:"cyan"},
-
 {poder:3e48, nome:"Destruidor 💥", cor:"red"},
-
 {poder:6e51, nome:"Eterno ♾️", cor:"white"},
-
 {poder:9e54, nome:"Ancião Eterno ♾️", cor:"silver"},
-
 {poder:4e57, nome:"Transcendente ⚡", cor:"aqua"},
-
 {poder:5e60, nome:"Rei Cósmico 👑", cor:"gold"},
-
 {poder:6e63, nome:"Imperador Cósmico 🌠", cor:"orange"},
-
 {poder:6e66, nome:"Divindade Absoluta ⚡", cor:"yellow"},
-
 {poder:6e69, nome:"Supremo Final 🌌", cor:"cyan"},
-
 {poder:3e72, nome:"Imperador Universal 👑", cor:"gold"},
-
 {poder:3e75, nome:"Infinito ∞ ☠️", cor:"white"},
-
 {poder:3e78, nome:"???????????", cor:"red"},
-
 {poder:3e81, nome:"Error (𓁹 𓁹)𓁹‿𓁹👁️⃤", cor:"magenta"},
-
 {poder:3e84, nome:"Rei Do Six Seven👑", cor:"Azure"},
-
 {poder:3e87, nome:"DESEMPREGADO 💀", cor:"black"},
-
 {poder:1e90, nome:"COMO VOCÊ CHEGOU A ISSO? 👁️", cor:"white"}
-
 ]
 
 function atualizarProximoRank(){
-
 let proximo = null
 
 for(let i = 0; i < ranks.length; i++){
-
 if(poder < ranks[i].poder){
-
 proximo = ranks[i]
-
 break
-
 }
-
 }
 
 if(proximo){
-
 let falta = proximo.poder - poder
 
 document.getElementById("proximoRank").innerHTML =
@@ -414,20 +377,14 @@ document.getElementById("proximoRank").innerHTML =
 proximo.nome +
 "<br>Faltam: " +
 formatarNumero(falta)
-
 }else{
-
 document.getElementById("proximoRank").innerHTML =
 "🏆 Rank Máximo"
-
 }
-
 }
 
 function atualizarRank(){
-
 if(poder >= 1e90){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -441,11 +398,8 @@ text-shadow:
 0 0 40px magenta;">
 COMO VOCÊ CHEGOU A ISSO? 👁️♾️
 </span>`
-
 }
-
 else if(poder >= 3e87){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -456,13 +410,8 @@ text-shadow:
 0 0 40px yellow;">
 DESEMPREGADO 👑
 </span>`
-
 }
-
-
-
 else if(poder >= 3e84){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -474,12 +423,8 @@ text-shadow:
 0 0 25px cyan;">
 Rei Do Six Seven👑
 </span>`
-
 }
-
-
 else if(poder >= 3e81){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -490,11 +435,8 @@ text-shadow:
 0 0 40px blue;">
 Error (𓁹 𓁹)𓁹‿𓁹👁️⃤
 </span>`
-
 }
-
 else if(poder >= 3e78){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -504,11 +446,8 @@ text-shadow:
 0 0 30px yellow;">
 ???????????
 </span>`
-
 }
-
 else if(poder >= 3e75){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -519,11 +458,8 @@ text-shadow:
 0 0 40px magenta;">
 Infinito ∞ ☠️
 </span>`
-
 }
-
 else if(poder >= 3e72){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -533,11 +469,8 @@ text-shadow:
 0 0 30px red;">
 Imperador Universal 👑
 </span>`
-
 }
-
 else if(poder >= 6e69){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -547,11 +480,8 @@ text-shadow:
 0 0 35px purple;">
 Supremo Final 🌌
 </span>`
-
 }
-
 else if(poder >= 6e66){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -561,11 +491,8 @@ text-shadow:
 0 0 35px orange;">
 Divindade Absoluta ⚡
 </span>`
-
 }
-
 else if(poder >= 6e63){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -575,11 +502,8 @@ text-shadow:
 0 0 35px white;">
 Imperador Cósmico 🌠
 </span>`
-
 }
-
 else if(poder >= 5e60){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -589,11 +513,8 @@ text-shadow:
 0 0 35px red;">
 Rei Cósmico 👑
 </span>`
-
 }
-
 else if(poder >= 4e57){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -603,11 +524,8 @@ text-shadow:
 0 0 35px purple;">
 Transcendente ⚡
 </span>`
-
 }
-
 else if(poder >= 9e54){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -617,11 +535,8 @@ text-shadow:
 0 0 35px cyan;">
 Ancião Eterno ♾️
 </span>`
-
 }
-
 else if(poder >= 6e51){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -631,11 +546,8 @@ text-shadow:
 0 0 35px blue;">
 Eterno ♾️
 </span>`
-
 }
-
 else if(poder >= 3e48){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -645,11 +557,8 @@ text-shadow:
 0 0 35px red;">
 Destruidor 💥
 </span>`
-
 }
-
 else if(poder >= 1e45){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -659,11 +568,8 @@ text-shadow:
 0 0 35px blue;">
 Lorde Galáctico 🌌
 </span>`
-
 }
-
 else if(poder >= 1e42){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -673,11 +579,8 @@ text-shadow:
 0 0 35px white;">
 Omega Ω
 </span>`
-
 }
-
 else if(poder >= 2e36){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -687,11 +590,8 @@ text-shadow:
 0 0 35px cyan;">
 Cósmico 🌌
 </span>`
-
 }
-
 else if(poder >= 9e33){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -701,11 +601,8 @@ text-shadow:
 0 0 35px yellow">
 Titã 🔥
 </span>`
-
 }
-
 else if(poder >= 3e30){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -715,11 +612,8 @@ text-shadow:
 0 0 35px red;">
 Supremo 🌠
 </span>`
-
 }
-
 else if(poder >= 9e25){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -729,11 +623,8 @@ text-shadow:
 0 0 35px yellow;">
 Divino 🔱
 </span>`
-
 }
-
 else if(poder >= 7e22){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -743,11 +634,8 @@ text-shadow:
 0 0 35px cyan;">
 Semideus ⚜️
 </span>`
-
 }
-
 else if(poder >= 2e18){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -757,11 +645,8 @@ text-shadow:
 0 0 35px magenta;">
 Mítico 🌟
 </span>`
-
 }
-
 else if(poder >= 3e16){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -771,11 +656,8 @@ text-shadow:
 0 0 35px white;">
 Mestre Arcano 🔮
 </span>`
-
 }
-
 else if(poder >= 1e14){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -785,11 +667,8 @@ text-shadow:
 0 0 35px magenta;">
 Celestial ✨
 </span>`
-
 }
-
 else if(poder >= 9e13){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -799,11 +678,8 @@ text-shadow:
 0 0 35px yellow;">
 Imensurável 👽
 </span>`
-
 }
-
 else if(poder >= 1e10){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -813,11 +689,8 @@ text-shadow:
 0 0 35px orange;">
 Lorde ⚔️
 </span>`
-
 }
-
 else if(poder >= 2e8){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -827,11 +700,8 @@ text-shadow:
 0 0 35px magenta;">
 Hacker 😈
 </span>`
-
 }
-
 else if(poder >= 1e6){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -841,11 +711,8 @@ text-shadow:
 0 0 35px purple;">
 Elite 💎
 </span>`
-
 }
-
 else if(poder >= 100000){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -854,11 +721,8 @@ text-shadow:
 0 0 18px aqua;">
 Veterano 🛡️
 </span>`
-
 }
-
 else if(poder >= 10000){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -867,11 +731,8 @@ text-shadow:
 0 0 18px green;">
 Pro 🥶
 </span>`
-
 }
-
 else if(poder >= 500){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -880,11 +741,8 @@ text-shadow:
 0 0 18px cyan;">
 Guerreiro ⚔️
 </span>`
-
 }
-
 else if(poder >= 50){
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -893,11 +751,8 @@ text-shadow:
 0 0 18px green;">
 Iniciante 😊
 </span>`
-
 }
-
 else{
-
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -905,70 +760,78 @@ text-shadow:
 0 0 5px gray;">
 Noob 🤡
 </span>`
-
 }
-
 }
-
-
-
-
 
 function atualizarTela(){
-
 calcularBonusRank()
+atualizarBonusAcessorio()  
 
 document.getElementById("poder").innerHTML =
 formatarNumero(poder)
 
-
 document.getElementById("ganho").innerHTML =
-"Voce esta ganhando +" + formatarNumero(Math.max(1, Math.round(ganho * bonusRank * bonusPet  * bonusEspada))) + " poder"
-
+"Voce esta ganhando +" + formatarNumero(Math.max(1, Math.round(ganho * bonusRank * bonusPet * bonusEspada * bonusAcessorio))) + " poder"
 
 atualizarRank()
 atualizarProximoRank()
+atualizarMoedas()
 }
 
 let click = new Audio("Click.mp3")
 click.volume = 0.09
 click.loop = false
 
-
 Click.addEventListener("click", function(){
   click.play()
 })
 
+async function treinar(){
+  calcularBonusRank()
+  atualizarBonusAcessorio()  
 
+  const valorGanho = Math.max(
+    1,
+    Math.round(ganho * bonusRank * bonusPet * bonusEspada * bonusAcessorio)  
+  )
 
-function treinar(){
+  const { data, error } = await cliente.rpc(
+    "aumentar_poder",
+    {
+      valor: valorGanho
+    }
+  )
 
-calcularBonusRank()
+  if(error){
+    console.error("Erro ao aumentar poder:", error.message)
+    // ✅ AUMENTA LOCALMENTE SE FALHAR
+    poder += valorGanho
+    localStorage.setItem("poder", poder)
+    salvar()
+    atualizarTela()
+    return
+  }
 
-
-
-poder += Math.max(1, Math.round(ganho * bonusRank * bonusPet  * bonusEspada))
-
-salvar()
-
-atualizarTela()
-
+  // ✅ SÓ ATUALIZA SE data FOR VÁLIDO
+  if(data !== null && data !== undefined){
+    poder = Number(data)
+  } else {
+    poder += valorGanho
+  }
+  
+  localStorage.setItem("poder", poder)
+  salvar()
+  atualizarTela()
 }
 
-
-
-function carregarJogo(){
-
-atualizarTela()
-
+async function carregarJogo(){
+  await carregarEspadas()
+  atualizarBonusAcessorio()  
+  atualizarTela()
 }
-
 
 carregarJogo()
 
-// =====================
-// ACESSÓRIOS
-// =====================
 
 
 let accComprado = localStorage.getItem("accComprado") === "true"
@@ -1023,7 +886,7 @@ else if(accEquipado === "atomica"){
 }
 
 else if(accEquipado === "antimateria"){
-    ganho = 50
+    ganho = 100
 }
 
 else{
@@ -1037,47 +900,26 @@ atualizarAcc()
 // Colar Prata
 
 function acc(){
-
-if(accComprado){
-
-  accEquipado = "prata"
-  localStorage.setItem("accEquipado", accEquipado)
-comprou.play()
-ganho = 3
-localStorage.setItem("ganho", ganho)
-
-  alert("Acessório Prata equipado!")
-  return
-
-}
-
-
-if(poder >= 50000){
+  if(accComprado){
+    accEquipado = "prata"
+    localStorage.setItem("accEquipado", accEquipado)
+    comprou.play()
+    atualizarBonusAcessorio() 
+    alert("Acessório Prata equipado!")
+    atualizarTela()
+    return
+  }
   
-
-
-poder -= 50000
-
-accComprado = true
-
-
-ganho = 3
-localStorage.setItem("ganho", ganho)
-
-localStorage.setItem("accComprado", "true")
-
-alert("Comprado com sucesso")
-
-atualizarDepoisCompra()
-
-}
-
-else{
-
-alert("Poder insuficiente")
-
-}
-
+  if(poder >= 50000){
+    poder -= 50000
+    accComprado = true
+    localStorage.setItem("accComprado", "true")
+    alert("Comprado com sucesso")
+    atualizarDepoisCompra()
+  }
+  else{
+    alert("Poder insuficiente")
+  }
 }
 
 
@@ -1095,6 +937,7 @@ ganho = 6
 localStorage.setItem("ganho", ganho)
 
 alert("Acessório Ouro equipado!")
+atualizarTela()
 return
 
 }
@@ -1135,6 +978,7 @@ comprou.play()
   localStorage.setItem("ganho", ganho)
 
   alert("Acessório Diamante equipado!")
+  atualizarTela()
   return
 
 }
@@ -1177,6 +1021,7 @@ comprou.play()
   localStorage.setItem("ganho", ganho)
 
   alert("Acessório Ametista equipado!")
+  atualizarTela()
   return
 
 }
@@ -1218,6 +1063,7 @@ comprou.play()
   localStorage.setItem("ganho", ganho)
 
   alert("Acessório Atômico equipado!")
+  atualizarTela()
   return
 
 }
@@ -1259,6 +1105,7 @@ comprou.play()
   localStorage.setItem("ganho", ganho)
 
   alert("Acessório Antimatéria equipado!")
+  atualizarTela()
   return
 
 }
@@ -1468,3 +1315,137 @@ function controlarMusica(){
     document.getElementById("GameMusic").innerHTML = "Off"
   }
 }
+
+
+
+
+
+async function testarSupabase(){
+
+
+const resultado = await cliente.auth.getUser()
+
+if(resultado.error){
+
+    alert("Erro Supabase:", resultado.error)
+
+    return
+}
+
+if(!resultado.data.user){
+
+    alert("Nenhum usuário logado")
+
+    return
+}
+
+alert("Supabase funcionando!")
+alert("ID do usuário:", resultado.data.user.id)
+alert("Email:", resultado.data.user.email)
+
+
+}
+
+
+async function carregarDadosSupabase(){
+
+
+const resultado = await cliente.auth.getUser()
+
+if(resultado.error || !resultado.data.user){
+    return
+}
+
+const userId = resultado.data.user.id
+
+const resposta = await cliente
+    .from("inventario")
+    .select("poder, moedas")
+    .eq("user_id", userId)
+    .maybeSingle()
+
+if(resposta.error){
+
+    alert.error(
+        "Erro ao carregar jogador:",
+        resposta.error
+    )
+
+    return
+}
+
+if(!resposta.data){
+    alert("Jogador ainda não possui dados no Supabase")
+    return
+}
+
+alert(
+"Dados encontrados no Supabase!\n\n" +
+"Poder: " + resposta.data.poder + "\n" +
+"Moedas: " + resposta.data.moedas
+)
+
+
+}
+
+
+async function sincronizarPrimeiroAcesso(){
+    const resultado = await cliente.auth.getUser()
+
+    if(resultado.error || !resultado.data.user){
+        return
+    }
+
+    const userId = resultado.data.user.id
+
+    const poderLocal = Number(localStorage.getItem("poder")) || 0
+    const moedasLocal = Number(localStorage.getItem("moedas")) || 0
+
+    const resposta = await cliente
+        .from("inventario")
+        .select("poder, moedas")
+        .eq("user_id", userId)
+        .maybeSingle()
+
+    if(resposta.error){
+        console.log("Erro ao buscar dados:", resposta.error.message)
+        return
+    }
+
+    if(!resposta.data){
+        console.log("Nenhum dado no Supabase ainda")
+        return
+    }
+
+    const poderServidor = Number(resposta.data.poder) || 0
+    const moedasServidor = Number(resposta.data.moedas) || 0
+
+    // ✅ SEMPRE PEGA O MAIOR VALOR
+    poder = Math.max(poderLocal, poderServidor)
+    moedas = Math.max(moedasLocal, moedasServidor)
+
+    localStorage.setItem("poder", poder)
+    localStorage.setItem("moedas", moedas)
+
+    atualizarTela()
+    atualizarMoedas()
+}
+
+sincronizarPrimeiroAcesso()
+
+// ✅ CARREGA DADOS DO SUPABASE ANTES DE TUDO
+async function carregarTudoAoIniciar(){
+  try {
+    await carregarEspadasSupabase()
+    
+    await new Promise(resolve => setTimeout(resolve, 500))
+    
+    atualizarTela()
+    
+    console.log("✅ Dados carregados com sucesso!")
+  } catch(erro) {
+    console.error("Erro ao carregar dados:", erro)
+  }
+}
+
+carregarTudoAoIniciar()

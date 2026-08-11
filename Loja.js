@@ -7,31 +7,49 @@ let petEquipado = Number(localStorage.getItem("petEquipado")) || 0
 
 
 
-function comprarPet(numero, preco){
+async function comprarPet(numero, preco){
 
     moedas = Number(localStorage.getItem("moedas")) || 0
 
     let possui = localStorage.getItem("pet" + numero) === "true"
-
 
     if(possui){
         equiparPet(numero)
         return
     }
 
-
     if(moedas >= preco){
 
-        moedas -= preco
+        
+        const { data, error } = await cliente.rpc(
+            "comprar_pet",
+            {
+                pet_id: numero,
+                preco: preco
+            }
+        )
 
-        localStorage.setItem("moedas", moedas)
+        if(error){
+            console.error("Erro ao comprar pet:", error.message)
+            alert("Erro ao comprar pet!")
+            return
+        }
 
-        localStorage.setItem("pet" + numero, "true")
+        
+        if(data.sucesso){
+            
+            moedas = Number(data.novo_saldo) || 0
+            localStorage.setItem("moedas", moedas)
+            localStorage.setItem("pet" + numero, "true")
 
-        alert("Pet comprado!")
+            alert("Pet comprado!")
 
-        atualizarMoedas()
-        atualizarBotoesPets()
+            Moedas()
+            BotoesPets()
+
+        }else{
+            alert("Erro ao comprar pet!")
+        }
 
     }else{
 
@@ -44,14 +62,11 @@ function comprarPet(numero, preco){
 
 function equiparPet(numero){
 
-
 let possui = localStorage.getItem("pet" + numero) === "true"
-
 
 if(!possui){
 return
 }
-
 
 if(petEquipado == numero){
 
@@ -63,17 +78,15 @@ petEquipado = numero
 
 }
 
-
 localStorage.setItem("petEquipado", petEquipado)
 
-
-atualizarBotoesPets()
+BotoesPets()
 
 }
 
 
 
-function atualizarBotoesPets(){
+function BotoesPets(){
 
 for(let i = 1; i <= 9; i++){
 
@@ -85,7 +98,6 @@ continue
 
 let possui = localStorage.getItem("pet" + i) === "true"
 
-
 if(!possui){
 
 document.getElementById("textoPet" + i).innerHTML = "Comprar"
@@ -93,7 +105,6 @@ document.getElementById("textoPet" + i).innerHTML = "Comprar"
 continue
 
 }
-
 
 if(petEquipado == i){
 
@@ -105,13 +116,13 @@ document.getElementById("textoPet" + i).innerHTML = "Equipar"
 
 }
 
-
 }
 
 }
 
 
-atualizarBotoesPets()
+BotoesPets()
+
 function formatarMoedas(valor){
 
 if(valor >= 1e12) return (valor/1e12).toFixed(1).replace(".0","") + "T"
@@ -192,4 +203,3 @@ petAura.volume = 0.5
 petBtn9.addEventListener("click", function(){
   petAura.play()
 })
-

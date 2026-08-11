@@ -4,7 +4,7 @@ let bonusEspada = 1
 
 
 
-// EQUIPAR ESPADA
+
 
 function equiparEspada(numero){
 
@@ -44,7 +44,6 @@ atualizarBonusEspada()
 
 
 
-// ATUALIZA OS BOTÕES
 
 function atualizarBotoesEspadas(){
 
@@ -93,7 +92,6 @@ botao.innerHTML = "Equipar"
 
 
 
-// BÔNUS DAS ESPADAS
 
 function atualizarBonusEspada(){
 
@@ -150,7 +148,6 @@ bonusEspada = 30
 
 
 
-// DROP DAS ESPADAS
 
 function droparEspada(numero, chance){
 
@@ -183,7 +180,6 @@ alert("🗡️ Você conseguiu uma nova espada!")
 
 
 
-// CARREGAR AO ABRIR
 
 atualizarBonusEspada()
 

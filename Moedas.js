@@ -5,6 +5,7 @@ function salvarMoedas(){
 }
 
 function ganharMoedas(valor){
+
     moedas += valor
     salvarMoedas()
     atualizarMoedas()
@@ -33,3 +34,26 @@ function formatarMoedas(valor){
 }
 
 atualizarMoedas()
+
+async function salvarMoedasSupabase(){
+
+    const resultado = await cliente.auth.getUser()
+
+    if(resultado.error || !resultado.data.user){
+        alert("ERRO: usuário não está logado")
+        throw new Error("Usuário não está logado")
+    }
+
+    const userId = resultado.data.user.id
+
+    const resposta = await cliente
+        .from("inventario")
+        .update({
+            moedas: moedas
+        })
+        .eq("user_id", userId)
+
+    
+
+    
+}

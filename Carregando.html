@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Click Simulathor</title>
+<style>
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#0b0014,#16002b,#000);
+  font-family:Arial;
+  color:white;
+  text-align:center;
+  padding:20px;
+  box-sizing:border-box;
+}
+
+.titulo{
+  font-size:2.2em;
+  color:red;
+  text-shadow:0 0 10px red,0 0 20px #ff4500;
+  margin-bottom:5px;
+}
+
+.versao{
+  display:inline-block;
+  background:#8b0000;
+  color:#ffd700;
+  padding:6px 14px;
+  border-radius:20px;
+  border:2px solid #ff4500;
+  box-shadow:0 0 12px #ff4500;
+  font-size:0.85em;
+  margin-bottom:25px;
+}
+
+.notas{
+  max-width:320px;
+  color:#ccc;
+  font-size:0.9em;
+  margin-bottom:35px;
+  line-height:1.5em;
+}
+
+.notas b{
+  color:#00e5ff;
+  text-shadow:0 0 8px #00e5ff;
+}
+
+.barra{
+  width:250px;
+  height:14px;
+  background:rgba(0,0,0,0.5);
+  border:2px solid #8b5cf6;
+  border-radius:10px;
+  box-shadow:0 0 15px #8b5cf6;
+  overflow:hidden;
+}
+
+.progresso{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#ff4500,#ffd700,#8b5cf6);
+  border-radius:10px;
+  animation:carregar 2.2s ease forwards;
+}
+
+@keyframes carregar{
+  from{ width:0%; }
+  to{ width:100%; }
+}
+
+.texto{
+  margin-top:12px;
+  color:#ffd700;
+  text-shadow:0 0 8px #ffd700;
+  font-size:0.95em;
+}
+
+</style>
+</head>
+<body>
+
+<div class="titulo">⚔️ Click Simulathor</div>
+<div class="versao">UPDATE 1.0</div>
+
+<div class="notas">
+<b>Novidades:</b><br>
+Correção no salvamento de Poder e Moedas<br>
+Top 10 agora mostra dados reais<br>
+Ajustes gerais de estabilidade. 
+New/Anti-Cheats🙂🚫
+
+</div>
+
+<div class="barra">
+  <div class="progresso"></div>
+</div>
+<div class="texto" id="texto">Carregando...</div>
+
+<script>
+setTimeout(function(){
+  window.location.href = "Game.html"
+}, 5300)
+</script>
+
+</body>
+</html>
