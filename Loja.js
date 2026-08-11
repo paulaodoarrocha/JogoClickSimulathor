@@ -24,14 +24,14 @@ async function comprarPet(numero, preco){
         const { data, error } = await cliente.rpc(
             "comprar_pet",
             {
-                pet_id: numero,
-                preco: preco
+                p_pet_id: numero,
+                p_preco: preco
             }
         )
 
         if(error){
             console.error("Erro ao comprar pet:", error.message)
-            alert("Erro ao comprar pet!")
+            alert("Erro ao comprar pet:\n\n" + error.message)
             return
         }
 
