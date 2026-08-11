@@ -3,7 +3,9 @@
     padding:0;
     box-sizing:border-box;
 }
-
+html, body {
+    touch-action: manipulation;
+}
 body{
     background:#0b1020;
     min-height:100vh;
