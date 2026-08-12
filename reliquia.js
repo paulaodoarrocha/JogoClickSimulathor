@@ -29,9 +29,9 @@ const nomeRaridade = {
   secreto:"Secreto"
 }
 
-const PRECO_GIRO = 100000000       // 100M
-const PRECO_GIRO_DUPLO = 180000000 // 180M
-const PRECO_AUTO_ROLL = 10000000  // 500M
+const PRECO_GIRO = 1000000       // 10M
+const PRECO_GIRO_DUPLO = 1800000 // 18M
+const PRECO_AUTO_ROLL = 10000000  // 100M
 
 
 const FATOR_LUCKY_POR_NIVEL = 0.03
