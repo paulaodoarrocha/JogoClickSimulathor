@@ -1,14 +1,10 @@
-// =====================
-// CONFIGURAÃ‡ÃƒO SUPABASE
-// =====================
+
 const SUPABASE_URL = "https://efjqtwzyfxrtbqunwezd.supabase.co"
 const SUPABASE_KEY = "sb_publishable_XcL3QhuOLyieluwevdLNJg_8IhVrIQj"
 
 const cliente = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
 
-// =====================
-// ÃUDIOS
-// =====================
+
 const musica = new Audio("MusicLogin.mp3")
 musica.volume = 0.09
 
@@ -134,9 +130,7 @@ botaoCadastro.addEventListener("click", async function() {
   alert("Conta criada com sucesso!\n\nConfirme seu email no Gmail.\n\nDepois volte aqui e clique em Entrar.")
 })
 
-// =====================
-// FUNÃ‡ÃƒO: FAZER LOGIN
-// =====================
+
 formulario.addEventListener("submit", async function(e) {
   e.preventDefault()
 
@@ -188,9 +182,9 @@ formulario.addEventListener("submit", async function(e) {
     return
   }
 
-  // Se nÃ£o tem registro, cria
+
   if (!resultadoBusca.data) {
-    // Cria inventÃ¡rio
+  
     const resultadoInventario = await cliente
       .from("inventario")
       .insert({
@@ -217,15 +211,13 @@ formulario.addEventListener("submit", async function(e) {
   somCerto.play().catch(function() {})
   alert("Login realizado com sucesso!")
 
-  // Aguarda um pouco antes de redirecionar
+  
   setTimeout(function() {
     window.location.href = "Carregando.html"
   }, 500)
 })
 
-// =====================
-// FUNÃ‡ÃƒO: ESQUECI SENHA
-// =====================
+
 botaoEsqueciSenha.addEventListener("click", async function() {
   const email = document.getElementById("email").value.trim()
 

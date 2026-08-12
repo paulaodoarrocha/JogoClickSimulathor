@@ -1,285 +1,3 @@
-
-let poder = Number(localStorage.getItem("poder")) || 0
-
-function setTexto(id, texto) {
-  const el = document.getElementById(id)
-  if (el) el.innerHTML = texto
-}
-
-function formatarNumero(num) {
-  num = Number(num) || 0
-
-  if (num >= 1e90) return (num / 1e90).toFixed(1).replace(".0", "") + "Trvg"
-  if (num >= 1e87) return (num / 1e87).toFixed(1).replace(".0", "") + "Qrdvg"
-  if (num >= 1e84) return (num / 1e84).toFixed(1).replace(".0", "") + "Uqnd"
-  if (num >= 1e81) return (num / 1e81).toFixed(1).replace(".0", "") + "Nvvg"
-  if (num >= 1e78) return (num / 1e78).toFixed(1).replace(".0", "") + "Spvg"
-  if (num >= 1e75) return (num / 1e75).toFixed(1).replace(".0", "") + "Sxvg"
-  if (num >= 1e72) return (num / 1e72).toFixed(1).replace(".0", "") + "Qivg"
-  if (num >= 1e69) return (num / 1e69).toFixed(1).replace(".0", "") + "Qavg"
-  if (num >= 1e66) return (num / 1e66).toFixed(1).replace(".0", "") + "Tvg"
-  if (num >= 1e63) return (num / 1e63).toFixed(1).replace(".0", "") + "Utvg"
-  if (num >= 1e60) return (num / 1e60).toFixed(1).replace(".0", "") + "Nvgt"
-  if (num >= 1e57) return (num / 1e57).toFixed(1).replace(".0", "") + "Ocvg"
-  if (num >= 1e54) return (num / 1e54).toFixed(1).replace(".0", "") + "Spd"
-  if (num >= 1e51) return (num / 1e51).toFixed(1).replace(".0", "") + "Sxd"
-  if (num >= 1e48) return (num / 1e48).toFixed(1).replace(".0", "") + "Qid"
-  if (num >= 1e45) return (num / 1e45).toFixed(1).replace(".0", "") + "Qad"
-  if (num >= 1e42) return (num / 1e42).toFixed(1).replace(".0", "") + "Td"
-  if (num >= 1e39) return (num / 1e39).toFixed(1).replace(".0", "") + "Dd"
-  if (num >= 1e36) return (num / 1e36).toFixed(1).replace(".0", "") + "Ud"
-  if (num >= 1e33) return (num / 1e33).toFixed(1).replace(".0", "") + "Dc"
-  if (num >= 1e30) return (num / 1e30).toFixed(1).replace(".0", "") + "No"
-  if (num >= 1e27) return (num / 1e27).toFixed(1).replace(".0", "") + "Oc"
-  if (num >= 1e24) return (num / 1e24).toFixed(1).replace(".0", "") + "Sp"
-  if (num >= 1e21) return (num / 1e21).toFixed(1).replace(".0", "") + "Sx"
-  if (num >= 1e18) return (num / 1e18).toFixed(1).replace(".0", "") + "Qi"
-  if (num >= 1e15) return (num / 1e15).toFixed(1).replace(".0", "") + "Qa"
-  if (num >= 1e12) return (num / 1e12).toFixed(1).replace(".0", "") + "T"
-  if (num >= 1e9) return (num / 1e9).toFixed(1).replace(".0", "") + "B"
-  if (num >= 1e6) return (num / 1e6).toFixed(1).replace(".0", "") + "M"
-  if (num >= 1e3) return (num / 1e3).toFixed(1).replace(".0", "") + "K"
-
-  return Math.floor(num).toString()
-}
-
-function atualizarRank(){
-
-if(poder >= 1e9){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px red,0 0 10px orange,0 0 15px yellow,0 0 20px lime,0 0 25px cyan,0 0 30px blue,0 0 35px magenta;">Infinito ∞ ☠️</span>'
-
-}
-
-else if(poder >= 1e87){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px #ff0000,0 0 10px #ff3300,0 0 20px #ff6600,0 0 30px #ffff00;">Imperador Universal 👑</span>'
-
-}
-
-else if(poder >= 1e84){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px cyan,0 0 10px #00ffff,0 0 20px #0088ff,0 0 30px #9400D3;">Supremo Final 🌌</span>'
-
-}
-
-else if(poder >= 1e78){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px violet,0 0 10px magenta,0 0 20px deeppink,0 0 30px cyan;">Divindade Absoluta ⚡</span>'
-
-}
-
-else if(poder >= 1e75){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px gold,0 0 10px orange,0 0 20px yellow,0 0 30px white;">Imperador Cósmico 🌠</span>'
-
-}
-
-else if(poder >= 1e70){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px gold,0 0 10px gold,0 0 20px white;">Rei Cósmico 👑</span>'
-
-}
-
-else if(poder >= 1e65){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px cyan,0 0 10px deepskyblue,0 0 20px white;">Arcanjo Supremo 😇</span>'
-
-}
-
-else if(poder >= 1e60){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px cyan,0 0 10px aqua,0 0 20px white;">Transcendente ⚡</span>'
-
-}
-
-else if(poder >= 1e55){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px white,0 0 10px silver,0 0 20px cyan;">Ancião Eterno ♾️</span>'
-
-}
-
-else if(poder >= 1e50){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px white,0 0 10px gray,0 0 20px cyan;">Eterno ♾️</span>'
-
-}
-
-else if(poder >= 1e45){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px hotpink,0 0 10px deeppink,0 0 20px red;">Destruidor 💥</span>'
-
-}
-
-else if(poder >= 1e40){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px magenta,0 0 10px violet,0 0 20px purple;">Omega Ω</span>'
-
-}
-
-else if(poder >= 1e35){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px slateblue,0 0 10px blueviolet,0 0 20px cyan;">Lorde Galáctico 🌌</span>'
-
-}
-
-else if(poder >= 1e30){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px purple,0 0 10px magenta,0 0 20px blue;">Cósmico 🌌</span>'
-
-}
-
-else if(poder >= 1e25){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px lime,0 0 10px greenyellow,0 0 20px cyan;">Titã 🔥</span>'
-}
-else if(poder >= 1e20){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px cyan,0 0 10px #00ffff,0 0 20px #00bfff;">Supremo 🌠</span>'
-
-}
-
-else if(poder >= 1e15){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px gold,0 0 10px yellow,0 0 20px orange;">Lendário 🏆</span>'
-
-}
-
-else if(poder >= 1e10){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px gold,0 0 10px orange,0 0 20px red;">Divino 🔱</span>'
-
-}
-
-else if(poder >= 1e9){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px lawngreen,0 0 10px lime,0 0 20px green;">Semideus ⚜️</span>'
-
-}
-
-else if(poder >= 1e8){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px violet,0 0 10px deeppink,0 0 20px magenta;">Mítico 🌟</span>'
-
-}
-
-else if(poder >= 1e7){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px dodgerblue,0 0 10px cyan,0 0 20px white;">Mestre Arcano 🔮</span>'
-
-}
-
-else if(poder >= 1e6){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px blueviolet,0 0 10px violet,0 0 20px magenta;">Celestial ✨</span>'
-
-}
-
-else if(poder >= 100000){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px lime,0 0 10px lawngreen,0 0 20px green;">Imensurável 👽</span>'
-
-}
-
-else if(poder >= 50000){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px crimson,0 0 10px red,0 0 20px orange;">Lorde ⚔️</span>'
-
-}
-
-else if(poder >= 10000){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px red,0 0 10px crimson,0 0 20px darkred;">Hacker 😈</span>'
-
-}
-
-else if(poder >= 5000){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px cyan,0 0 10px dodgerblue,0 0 20px blue;">Elite 💎</span>'
-
-}
-
-else if(poder >= 1000){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px deepskyblue,0 0 10px cyan;">Veterano 🛡️</span>'
-
-}
-
-else if(poder >= 500){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px cyan,0 0 10px aqua;">Pro 🥶</span>'
-
-}
-
-else if(poder >= 100){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px lime,0 0 10px green;">Guerreiro ⚔️</span>'
-
-}
-
-else if(poder >= 50){
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px #00FF7F,0 0 10px lime;">Iniciante 😊</span>'
-
-}
-
-else{
-
-document.getElementById("rank").innerHTML =
-'<span style="color:#fff;text-shadow:0 0 5px gray;">Noob 🤡</span>'
-
-}
-
-}
-
-function atualizarTela() {
-  setTexto("poder", formatarNumero(poder))
-  atualizarRank()
-}
-
-const bosses = [
-  { nome: "Benimaru", valor: 100, escala: "K", imagem: "benimaru.gif", texto: "500K Power", ouro: 10, espada: 1, chanceEspada: 50},
-  { nome: "Arthur", valor: 122, escala: "T", imagem: "dragon.gif", texto: "100T Power", ouro: 100, espada: 2, chanceEspada: 40},
-  { nome: "Poderosa", valor: 999, escala: "Qi", imagem: "magia.gif", texto: "999Qi Power", ouro: 1000, espada: 3, chanceEspada: 30},
-  { nome: "Shadow", valor: 112, escala: "Oc", imagem: "shadow.gif", texto: "777Oc Power", ouro: 10000, espada: 4, chanceEspada: 20},
-  { nome: "WangLing", valor: 1, escala: "Dd", imagem: "ling.gif", texto: "55Dd Power", ouro: 100000, espada: 5, chanceEspada: 15},
-  { nome: "Goku", valor: 539, escala: "Sxd", imagem: "goku.gif", texto: "22Sxd Power", ouro: 1000000, espada: 6, chanceEspada:10},
-  { nome: "Saber", valor: 55, escala: "Nvgt", imagem: "saber.gif", texto: "99Nvgt Power", ouro: 10000000, espada: 7, chanceEspada: 7},
-  { nome: "Megumi", valor: 999, escala: "Sxvg", imagem: "megumi.gif", texto: "999Sxvg Power", ouro: 100000000, espada: 8, chanceEspada: 5},
-    { nome: "WangFinalBossTrueForm💀", valor: 999, escala: "Sxvg", imagem: "wang.gif", texto: "67Spvg Power", ouro: 1000000000, espada: 9, chanceEspada: 1},
-      { nome: "PaulaoDopenu", valor: 999, escala: "Trvg", imagem: "Paulo.jpg", texto: "999Trvg Power", ouro: 10000000000, espada: 9, chanceEspada: 10}
-]
-
 const escalaBase = {
   "": 0,
   K: 1,
@@ -309,8 +27,9 @@ const escalaBase = {
   Sxvg: 25,
   Spvg: 26,
   Nvvg: 27,
-  Qrdvg: 28,
-  Trvg: 29
+  Uqnd: 28,
+  Qrdvg: 29,
+  Trvg: 30
 }
 
 function converterPoder(valor, escala) {
@@ -318,45 +37,386 @@ function converterPoder(valor, escala) {
   return valor * (10 ** (expo * 3))
 }
 
-function desafiarBoss(id) {
-  const boss = bosses[id]
-  if (!boss) return
+function formatarNumero(num) {
+  num = Number(num) || 0
 
-  const poderNecessario = converterPoder(boss.valor, boss.escala)
+  const lista = [
+["K",1e3],
+["M",1e6],
+["B",1e9],
+["T",1e12],
+["Qa",1e15],
+["Qi",1e18],
+["Sx",1e21],
+["Sp",1e24],
+["Oc",1e27],
+["No",1e30],
+["Dc",1e33],
+["Ud",1e36],
+["Dd",1e39],
+["Td",1e42],
+["Qad",1e45],
+["Qid",1e48],
+["Sxd",1e51],
+["Spd",1e54],
+["Ocvg",1e57],
+["Nvgt",1e60],
+["Utvg",1e63],
+["Tvg",1e66],
+["Qavg",1e69],
+["Qivg",1e72],
+["Sxvg",1e75],
+["Spvg",1e78],
+["Nvvg",1e81],
+["Uqnd",1e84],
+["Qrdvg",1e87],
+["Trvg",1e90],
+["Trig",1e93],
+["Dutg",1e96],
+["MAX",1e99]
 
- 
+]
 
-  localStorage.setItem("BossNome", boss.nome)
-  localStorage.setItem("BossValor", boss.valor)
-  localStorage.setItem("BossEscala", boss.escala)
-  localStorage.setItem("BossImagem", boss.imagem)
-  localStorage.setItem("BossPowerText", boss.texto)
-  
-  localStorage.setItem("BossEspada", boss.espada)
-  localStorage.setItem("BossChanceEspada", boss.chanceEspada)
-  
-  localStorage.setItem("BossOuro", boss.ouro)
+  for (let i = lista.length - 1; i >= 0; i--) {
+  if (num >= lista[i][1]) {
+  return (num / lista[i][1]).toFixed(1).replace(".0", "") + lista[i][0]
+  }
+  }
 
-  window.location.href = "Desafiar.html"
+  return Math.floor(num).toString()
 }
 
-atualizarTela()
+function setTexto(id, texto) {
+  const el = document.getElementById(id)
+  if (el) el.innerHTML = texto
+}
+
+const bossNome = localStorage.getItem("BossNome")
+const bossOuro = Number(localStorage.getItem("BossOuro")) || 0
+const bossEspada = Number(localStorage.getItem("BossEspada")) || 0
+const bossChanceEspada = Number(localStorage.getItem("BossChanceEspada")) || 0
+const bossValor = Number(localStorage.getItem("BossValor")) || 0
+const bossEscala = localStorage.getItem("BossEscala") || ""
+const bossImagem = localStorage.getItem("BossImagem") || ""
+const bossPowerText = localStorage.getItem("BossPowerText") || ""
+
+const modoNightmare = localStorage.getItem("modoNightmare") === "true"
 
 
 
-let bossesMusic = new Audio("BossesMusic.mp3")
-bossesMusic.volume = 0.4
-bossesMusic.loop = true 
+let poder = Number(localStorage.getItem("poder")) || 0
+let bossPower = converterPoder(bossValor, bossEscala)
 
-function controlarMusicaBosses(){
-  if(bossesMusic.paused){
-    bossesMusic.play()
-    document.getElementById("BossesMusic").innerHTML = "On"
+if(modoNightmare){
+  bossPower = bossPower * 100
+}
+
+let progresso = 50
+let lutaAtiva = false
+let lutaEncerrada = false
+let intervaloBoss = null
+
+const barraVerde = document.querySelector(".verde")
+const barraVermelha = document.querySelector(".vermelho")
+const btnLutar = document.getElementById("btnLutar")
+
+function atualizarTopo() {
+  // ✅ RECARREGA PODER SEMPRE
+  poder = Number(localStorage.getItem("poder")) || 0
+  
+  if (!bossNome || !bossImagem || !bossPower) {
+  localStorage.removeItem("BossNome")
+  localStorage.removeItem("BossValor")
+  localStorage.removeItem("BossEscala")
+  localStorage.removeItem("BossImagem")
+  localStorage.removeItem("BossPowerText")
+  window.location.href = "batalha.html"
+  return
+  }
+
+  document.getElementById("Boss").innerHTML = bossNome
+
+  if(modoNightmare){
+    document.getElementById("Bosspower").innerHTML = "☠️ NIGHTMARE ☠️<br>⚡" + formatarNumero(bossPower) + " Power"
   }
   else{
-    bossesMusic.pause()
-    document.getElementById("BossesMusic").innerHTML = "Off"
+    document.getElementById("Bosspower").innerHTML = bossPowerText || ("⚡" + formatarNumero(bossPower) + " Power")
+  }
+
+  document.getElementById("BossAtual").src = bossImagem
+  document.getElementById("poder").innerHTML = formatarNumero(poder) + " Power"
+}
+
+function atualizarBarra() {
+  const verde = Math.max(0, Math.min(100, progresso))
+  const vermelho = 100 - verde
+
+  barraVerde.style.width = verde + "%"
+  barraVermelha.style.width = vermelho + "%"
+}
+
+function calcularDanos() {
+  const ratio = poder / bossPower
+
+  let danoJogador = 1
+  let danoBoss = 5
+
+  if (ratio >= 20) {
+  danoJogador = 90
+  danoBoss = 1
+  } else if (ratio >= 8) {
+  danoJogador = 60
+  danoBoss = 1
+  } else if (ratio >= 4) {
+  danoJogador = 40
+  danoBoss = 1
+  } else if (ratio >= 2) {
+  danoJogador = 20
+  danoBoss = 2
+  } else if (ratio >= 1.2) {
+  danoJogador = 10
+  danoBoss = 4
+  } else if (ratio >= 0.8) {
+  danoJogador = 6
+  danoBoss = 5
+  } else if (ratio >= 0.5) {
+  danoJogador = 3
+  danoBoss = 8
+  } else if (ratio >= 0.2) {
+  danoJogador = 2
+  danoBoss = 20
+  } else if (ratio >= 0.05) {
+  danoJogador = 1
+  danoBoss = 40
+  } else {
+  danoJogador = 1
+  danoBoss = 90
+  }
+
+  return { danoJogador, danoBoss }
+}
+
+function calcularChanceNightmare(chance){
+  const tabela = {
+    0.1: 1,
+    1: 5,
+    5: 15,
+    7: 20,
+    10: 25,
+    15: 32,
+    20: 40,
+    30: 50,
+    40: 60,
+    50: 70
+  }
+
+  if(tabela[chance] !== undefined){
+    return tabela[chance]
+  }
+
+  return Math.min(90, (chance * 3) + 2)
+}
+
+function aplicarVisualNightmare(ativo){
+  let overlay = document.getElementById("nightmareOverlay")
+
+  if(!overlay){
+    overlay = document.createElement("div")
+    overlay.id = "nightmareOverlay"
+    overlay.style.position = "fixed"
+    overlay.style.inset = "0"
+    overlay.style.pointerEvents = "none"
+    overlay.style.zIndex = "5000"
+    overlay.style.transition = "opacity 0.6s"
+    overlay.style.background = "radial-gradient(circle, rgba(60,0,0,0) 35%, rgba(120,0,0,0.55) 100%)"
+    overlay.style.mixBlendMode = "multiply"
+    overlay.style.opacity = "0"
+    document.body.appendChild(overlay)
+  }
+
+  if(ativo){
+    overlay.style.opacity = "1"
+    document.body.style.filter = "contrast(1.15) saturate(1.3) brightness(0.75) sepia(0.15) hue-rotate(-10deg)"
+  }
+  else{
+    overlay.style.opacity = "0"
+    document.body.style.filter = ""
   }
 }
 
+aplicarVisualNightmare(modoNightmare)
 
+let loser = new Audio("Loser.mp3")
+let coins = new Audio("Coins.mp3")
+let win = new Audio("Win.mp3")
+win.volume = 0.3
+loser.volume = 0.5
+coins.volume = 0.6
+
+async function encerrarLuta(vitoria) {
+
+    lutaEncerrada = true
+    lutaAtiva = false
+
+    if (intervaloBoss) {
+        clearInterval(intervaloBoss)
+        intervaloBoss = null
+    }
+
+    btnLutar.disabled = true
+
+    try {
+
+        if (vitoria) {
+
+            coins.play().catch(() => {})
+            win.play().catch(() => {})
+
+            alert("Boss derrotado!")
+
+            let ouroFinal = bossOuro
+            let chanceFinal = bossChanceEspada
+
+            if(modoNightmare){
+              ouroFinal = bossOuro * 2
+              chanceFinal = calcularChanceNightmare(bossChanceEspada)
+            }
+
+            ganharMoedas(ouroFinal)
+
+            droparEspada(bossEspada, chanceFinal)
+
+            await salvarMoedasSupabase().catch(erro => {
+                console.error("Erro ao salvar moedas:", erro)
+            })
+        }
+        else {
+
+            loser.play().catch(() => {})
+            alert("Você perdeu!")
+        }
+
+    } catch(erro) {
+
+        console.error("Erro ao encerrar luta:", erro)
+
+    } finally {
+
+        localStorage.removeItem("BossNome")
+        localStorage.removeItem("BossValor")
+        localStorage.removeItem("BossEscala")
+        localStorage.removeItem("BossImagem")
+        localStorage.removeItem("BossPowerText")
+
+        window.location.href = "batalha.html"
+    }
+}
+
+function checarFim() {
+  if (progresso >= 100) {
+  progresso = 100
+  atualizarBarra()
+  encerrarLuta(true)
+  return true
+  }
+
+  if (progresso <= 0) {
+  progresso = 0
+  atualizarBarra()
+  encerrarLuta(false)
+  return true
+  }
+
+  return false
+}
+
+function ataqueBossAutomatico() {
+  if (!lutaAtiva || lutaEncerrada) return
+
+  const { danoBoss } = calcularDanos()
+  progresso -= danoBoss
+
+  if (progresso < 0) progresso = 0
+
+  atualizarBarra()
+  checarFim()
+}
+
+function atacar() {
+  if (!lutaAtiva || lutaEncerrada) return
+
+  const { danoJogador } = calcularDanos()
+  progresso += danoJogador
+
+  if (progresso > 100) progresso = 100
+
+  atualizarBarra()
+  checarFim()
+}
+
+function iniciarLuta() {
+
+lutaAtiva = true
+lutaEncerrada = false
+
+btnLutar.disabled = false
+
+btnLutar.innerHTML = "⚔️ CLIQUE ⚔️"
+
+atualizarBarra()
+
+
+if(intervaloBoss){
+    clearInterval(intervaloBoss)
+}
+
+intervaloBoss = setInterval(ataqueBossAutomatico, 150)
+
+}
+
+function criarIntro() {
+  btnLutar.disabled = true
+  btnLutar.innerHTML = "PREPARA..."
+
+  const overlay = document.createElement("div")
+  overlay.id = "introFight"
+
+  overlay.style.position = "fixed"
+  overlay.style.inset = "0"
+  overlay.style.background = "rgba(0,0,0,0.90)"
+  overlay.style.zIndex = "9999"
+  overlay.style.display = "flex"
+  overlay.style.alignItems = "center"
+  overlay.style.justifyContent = "center"
+  overlay.style.color = "#fff"
+  overlay.style.fontSize = "clamp(64px, 18vw, 150px)"
+  overlay.style.fontWeight = "900"
+  overlay.style.letterSpacing = "4px"
+  overlay.style.textAlign = "center"
+  overlay.style.userSelect = "none"
+
+  const texto = document.createElement("div")
+  texto.innerHTML = "3"
+  overlay.appendChild(texto)
+  document.body.appendChild(overlay)
+
+  const passos = ["3", "2", "1", "FIGHT"]
+  let i = 0
+
+  const timer = setInterval(() => {
+ i++
+
+ if (i < passos.length) {
+  texto.innerHTML = passos[i]
+ return
+  }
+
+  clearInterval(timer)
+  overlay.remove()
+  iniciarLuta()
+  }, 800)
+}
+
+atualizarTopo()
+atualizarBarra()
+criarIntro()

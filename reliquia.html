@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relíquias Brainrot</title>
+  <link rel="stylesheet" href="Reliquia.css">
+</head>
+<body>
+
+  <h1>✨ Relíquias Brainrot ✨</h1>
+  <h2 id="moedas">Moedas: </h2>
+
+  <div class="topBotoes">
+    <button onclick="abrirChances()">📊 Chances de Drop</button>
+    <button onclick="abrirInventario()">🎒 Inventário</button>
+    <button onclick="abrirLucky()">🍀 Lucky</button>
+  </div>
+
+  <div class="painelGiro">
+    <div class="reelViewport" id="reelViewport">
+      <div class="reelTrack" id="reelTrack"></div>
+    </div>
+    <div class="reelPointer">▼</div>
+
+    <div class="botoesGiro">
+      <button id="btnGirar1" onclick="girar(1)">
+        🎰 Girar (1x)
+        <span id="precoGiro1"></span>
+      </button>
+
+      <button id="btnGirar2" onclick="girar(2)">
+        🎰🎰 Girar (2x)
+        <span id="precoGiro2"></span>
+      </button>
+    </div>
+
+    <button id="btnAutoRoll" onclick="alternarAutoRoll()"></button>
+  </div>
+
+  <h2 class="tituloSecao">Todas as Relíquias</h2>
+  <div class="gridReliquias" id="containerReliquias"></div>
+
+  <a id="voltar" href="batalha.html">← Voltar</a>
+
+  <!-- POPUP NOVA RELÍQUIA -->
+  <div class="overlay" id="overlayNovaReliquia">
+    <div id="popupRelicConteudo" class="popupRelic"></div>
+  </div>
+
+  <!-- MODAL CHANCES -->
+  <div class="overlay" id="overlayChances">
+    <div class="caixaModal">
+      <button class="fecharBtn" onclick="fecharModal('overlayChances')">✖</button>
+      <h2>📊 Chances de Drop</h2>
+      <div class="gridChances" id="listaChances"></div>
+    </div>
+  </div>
+
+  <!-- MODAL INVENTÁRIO -->
+  <div class="overlay" id="overlayInventario">
+    <div class="caixaModal">
+      <button class="fecharBtn" onclick="fecharModal('overlayInventario')">✖</button>
+      <h2>🎒 Inventário</h2>
+      <div class="gridInventario" id="listaInventario"></div>
+    </div>
+  </div>
+
+  <!-- MODAL LUCKY -->
+  <div class="overlay" id="overlayLucky">
+    <div class="caixaModal">
+      <button class="fecharBtn" onclick="fecharModal('overlayLucky')">✖</button>
+      <h2>🍀 Lucky</h2>
+      <div class="painelLucky">
+        <p id="luckyNivel"></p>
+        <p id="luckyBonus"></p>
+        <button id="btnMelhorarLucky" onclick="melhorarLucky()"></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="Moedas.js"></script>
+  <script src="reliquia.js"></script>
+
+</body>
+</html>

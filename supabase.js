@@ -159,7 +159,7 @@ async function salvarPoderSupabase(){
     const resposta = await cliente
     .from("inventario")
     .update({
-        poder: Number(poder)  // ðŸ”´ FORÃ‡A SER NÃšMERO
+        poder: Number(poder)   
     })
     .eq("user_id", userId)
 
@@ -176,7 +176,7 @@ async function garantirRegistroUsuario() {
     const resultado = await cliente.auth.getUser()
     
     if (resultado.error || !resultado.data.user) {
-      return // Sem alert
+      return 
     }
 
     const userId = resultado.data.user.id
@@ -194,7 +194,7 @@ async function garantirRegistroUsuario() {
           .update({ usuarios: resultado.data.user.email })
           .eq("user_id", userId)
       }
-      return // Sem alert
+      return 
     }
 
     await cliente
@@ -207,11 +207,11 @@ async function garantirRegistroUsuario() {
       })
 
   } catch (erro) {
-    console.error("Erro:", erro) // SÃ³ no console
+    console.error("Erro:", erro) 
   }
 }
 
-// âœ… GARANTE QUE O REGISTRO EXISTE ANTES DE TUDO
+
 window.addEventListener("load", async function() {
   await garantirRegistroUsuario()
 })

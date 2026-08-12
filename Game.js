@@ -14,31 +14,31 @@ let bonusPet = 1
 
 switch(petEquipado){
 case 1:
-bonusPet = 5
+bonusPet = 2
 break
 case 2:
-bonusPet = 9
+bonusPet = 4
 break
 case 3:
-bonusPet = 15
+bonusPet = 6
 break
 case 4:
-bonusPet = 30
+bonusPet = 8
 break
 case 5:
-bonusPet = 50
+bonusPet = 10
 break
 case 6:
-bonusPet = 90
+bonusPet = 12
 break
 case 7:
-bonusPet = 500
+bonusPet = 15
 break
 case 8:
-bonusPet = 1000
+bonusPet = 20
 break
 case 9:
-bonusPet = 5000
+bonusPet = 50
 break
 }
 
@@ -48,34 +48,58 @@ let bonusEspada = 1
 
 switch(espadaEquipada){
 case 1:
-bonusEspada = 5
+bonusEspada = 2
 break
 case 2:
-bonusEspada = 10
+bonusEspada = 4
 break
 case 3:
-bonusEspada = 20
+bonusEspada = 6
 break
 case 4:
-bonusEspada = 40
+bonusEspada = 8
 break
 case 5:
-bonusEspada = 60
+bonusEspada = 10
 break
 case 6:
-bonusEspada = 80
+bonusEspada = 12
 break
 case 7:
-bonusEspada = 500
+bonusEspada = 15
 break
 case 8:
-bonusEspada = 2500
+bonusEspada = 25
 break
 case 9:
-bonusEspada = 10000
+bonusEspada = 50
+break
+case 10:
+bonusEspada = 100
 break
 }
 
+
+let reliquiaEquipada = Number(localStorage.getItem("reliquiaEquipada")) || 0
+
+let bonusReliquia = 1
+
+const buffsReliquias = {
+1: 1.5,
+2: 2,
+3: 3.5,
+4: 5,
+5: 9,
+6: 13,
+7: 25,
+8: 40,
+9: 80,
+10: 150
+}
+
+if(buffsReliquias[reliquiaEquipada]){
+bonusReliquia = buffsReliquias[reliquiaEquipada]
+}
 
 let bonusAcessorio = 1
 
@@ -83,17 +107,17 @@ function atualizarBonusAcessorio() {
   bonusAcessorio = 1
 
   if (accEquipado === "prata") {
-    bonusAcessorio = 3
+    bonusAcessorio = 2
   } else if (accEquipado === "ouro") {
-    bonusAcessorio = 6
+    bonusAcessorio = 4
   } else if (accEquipado === "diamante") {
-    bonusAcessorio = 12
+    bonusAcessorio = 8
   } else if (accEquipado === "ametista") {
-    bonusAcessorio = 30
+    bonusAcessorio = 12
   } else if (accEquipado === "atomica") {
-    bonusAcessorio = 50
+    bonusAcessorio = 20
   } else if (accEquipado === "antimateria") {
-    bonusAcessorio = 100
+    bonusAcessorio = 50
   }
 }
 
@@ -132,7 +156,10 @@ const lista = [
 ["Nvvg",1e81],
 ["Uqnd",1e84],
 ["Qrdvg",1e87],
-["Trvg",1e90]
+["Trvg",1e90],
+["Trig",1e93],
+["Dutg",1e96],
+["MAX",1e99]
 ]
 
 for(let i = lista.length - 1; i >= 0; i--){
@@ -210,7 +237,22 @@ function salvar(){
 }
 
 function calcularBonusRank(){
-if(poder >= 1e90){
+if(poder >= 1e99){
+bonusRank = 9e99
+}
+else if(poder >= 1e98){
+bonusRank = 5e85
+}
+else if(poder >= 1e97){
+bonusRank = 2e85
+}
+else if(poder >= 1e95){
+bonusRank = 1e84
+}
+else if(poder >= 1e93){
+bonusRank = 3e82
+}
+else if(poder >= 1e90){
 bonusRank = 1e80
 }
 else if(poder >= 3e87){
@@ -310,7 +352,7 @@ else if(poder >= 500){
 bonusRank = 50
 }
 else if(poder >= 50){
-bonusRank = 10
+bonusRank = 8
 }
 else{
 bonusRank = 1
@@ -356,7 +398,12 @@ const ranks = [
 {poder:3e81, nome:"Error (𓁹 𓁹)𓁹‿𓁹👁️⃤", cor:"magenta"},
 {poder:3e84, nome:"Rei Do Six Seven👑", cor:"Azure"},
 {poder:3e87, nome:"DESEMPREGADO 💀", cor:"black"},
-{poder:1e90, nome:"COMO VOCÊ CHEGOU A ISSO? 👁️", cor:"white"}
+{poder:1e90, nome:"COMO VOCÊ CHEGOU A ISSO? 👁️", cor:"white"},
+{poder:1e93, nome:"Bug Do Universo 🐛", cor:"lime"},
+{poder:1e95, nome:"Savage Supremo 💀🔥", cor:"crimson"},
+{poder:1e97, nome:"Anomalia Cósmica 🌀", cor:"violet"},
+{poder:1e98, nome:"Dev Surtou 😭 (Meme)", cor:"yellow"},
+{poder:1e99, nome:"ALCANÇOU O LIMITE 9e99 ♾️👑", cor:"white"}
 ]
 
 function atualizarProximoRank(){
@@ -384,7 +431,64 @@ document.getElementById("proximoRank").innerHTML =
 }
 
 function atualizarRank(){
-if(poder >= 1e90){
+if(poder >= 1e99){
+document.getElementById("rank").innerHTML =
+`<span style="
+color:white;
+text-shadow:
+0 0 10px gold,
+0 0 20px white,
+0 0 30px cyan,
+0 0 45px magenta,
+0 0 60px red;">
+ALCANÇOU O LIMITE 9e99 ♾️👑
+</span>`
+}
+else if(poder >= 1e98){
+document.getElementById("rank").innerHTML =
+`<span style="
+color:white;
+text-shadow:
+0 0 8px yellow,
+0 0 16px orange,
+0 0 24px gray;">
+Dev Surtou 😭 (Meme)
+</span>`
+}
+else if(poder >= 1e97){
+document.getElementById("rank").innerHTML =
+`<span style="
+color:white;
+text-shadow:
+0 0 10px violet,
+0 0 20px purple,
+0 0 30px magenta;">
+Anomalia Cósmica 🌀
+</span>`
+}
+else if(poder >= 1e95){
+document.getElementById("rank").innerHTML =
+`<span style="
+color:white;
+text-shadow:
+0 0 10px crimson,
+0 0 20px red,
+0 0 30px black;">
+Savage Supremo 💀🔥
+</span>`
+}
+else if(poder >= 1e93){
+document.getElementById("rank").innerHTML =
+`<span style="
+color:white;
+text-shadow:
+0 0 10px lime,
+0 0 20px green,
+0 0 30px cyan;">
+Bug Do Universo 🐛
+</span>`
+}
+else if(poder >= 1e90){
 document.getElementById("rank").innerHTML =
 `<span style="
 color:white;
@@ -771,7 +875,7 @@ document.getElementById("poder").innerHTML =
 formatarNumero(poder)
 
 document.getElementById("ganho").innerHTML =
-"Voce esta ganhando +" + formatarNumero(Math.max(1, Math.round(ganho * bonusRank * bonusPet * bonusEspada * bonusAcessorio))) + " poder"
+"Voce esta ganhando +" + formatarNumero(Math.max(1, Math.round(ganho * bonusRank * bonusPet * bonusEspada * bonusAcessorio * bonusReliquia))) + " poder"
 
 atualizarRank()
 atualizarProximoRank()
@@ -782,9 +886,14 @@ let click = new Audio("Click.mp3")
 click.volume = 0.09
 click.loop = false
 
-Click.addEventListener("click", function(){
-  click.play()
-})
+// ✅ CORRIGIDO: antes usava "Click" direto (variável global implícita do id),
+// o que quebrava em qualquer página sem o botão #Click. Agora é seguro.
+const btnClick = document.getElementById("Click")
+if(btnClick){
+  btnClick.addEventListener("click", function(){
+    click.play()
+  })
+}
 
 async function treinar(){
   calcularBonusRank()
@@ -792,7 +901,7 @@ async function treinar(){
 
   const valorGanho = Math.max(
     1,
-    Math.round(ganho * bonusRank * bonusPet * bonusEspada * bonusAcessorio)  
+    Math.round(ganho * bonusRank * bonusPet * bonusEspada * bonusAcessorio * bonusReliquia)  
   )
 
   const { data, error } = await cliente.rpc(
@@ -866,27 +975,28 @@ comprou.volume = 0.6
 function atualizarAcc(){
 
 if(accEquipado === "prata"){
-    ganho = 3
+    ganho = 2
 }
 
 else if(accEquipado === "ouro"){
-    ganho = 6
+    ganho = 4
 }
 
 else if(accEquipado === "diamante"){
-    ganho = 12
+    ganho = 8
+    
 }
 
 else if(accEquipado === "ametista"){
-    ganho = 30
+    ganho = 12
 }
 
 else if(accEquipado === "atomica"){
-    ganho = 50
+    ganho = 20
 }
 
 else if(accEquipado === "antimateria"){
-    ganho = 100
+    ganho = 50
 }
 
 else{
@@ -1420,7 +1530,7 @@ async function sincronizarPrimeiroAcesso(){
     const poderServidor = Number(resposta.data.poder) || 0
     const moedasServidor = Number(resposta.data.moedas) || 0
 
-    // ✅ SEMPRE PEGA O MAIOR VALOR
+
     poder = Math.max(poderLocal, poderServidor)
     moedas = Math.max(moedasLocal, moedasServidor)
 
@@ -1433,7 +1543,7 @@ async function sincronizarPrimeiroAcesso(){
 
 sincronizarPrimeiroAcesso()
 
-// ✅ CARREGA DADOS DO SUPABASE ANTES DE TUDO
+
 async function carregarTudoAoIniciar(){
   try {
     await carregarEspadasSupabase()

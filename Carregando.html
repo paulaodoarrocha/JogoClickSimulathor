@@ -83,32 +83,65 @@ body{
   font-size:0.95em;
 }
 
+.btnEntrar{
+  opacity:0;
+  pointer-events:none;
+  margin-top:20px;
+  background:linear-gradient(135deg,#ffd700,#ff8c00);
+  color:#000;
+  border:none;
+  padding:12px 28px;
+  border-radius:12px;
+  font-weight:bold;
+  font-size:1.1em;
+  cursor:pointer;
+  box-shadow:0 0 15px gold;
+  transition:opacity 0.6s ease, transform 0.6s ease;
+  transform:translateY(10px);
+}
+
+.btnEntrar.visivel{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
+  animation:pulseEntrar 1.4s infinite alternate;
+}
+
+@keyframes pulseEntrar{
+  from{ box-shadow:0 0 15px gold; }
+  to{ box-shadow:0 0 30px gold, 0 0 45px orange; }
+}
+
 </style>
 </head>
 <body>
 
 <div class="titulo">⚔️ Click Simulathor</div>
-<div class="versao">UPDATE 1.1</div>
+<div class="versao">UPDATE 2.0</div>
 
 <div class="notas">
 <b>Novidades:</b><br>
-Correção no salvamento de Poder e Moedas<br>
-Top 10 agora mostra dados reais<br>
-Ajustes gerais de estabilidade. 
+✨ Novo sistema de Relíquias Brainrot<br>
+🔄 Novo: Auto Giro de relíquias<br>
+⚖️ Nerf geral: Ranks, Acessórios, Espadas e Pets<br>
+🎯 Chances de relíquia mais equilibradas<br>
+Ajustes gerais de estabilidade.<br>
 New/Anti-Cheats🙂🚫
-Pet e Top global resolvido
 
 </div>
 
 <div class="barra">
-  <div class="progresso"></div>
+  <div class="progresso" id="progresso"></div>
 </div>
 <div class="texto" id="texto">Carregando...</div>
 
+<button id="btnEntrar" class="btnEntrar" onclick="window.location.href='Game.html'">Entrar ▶️</button>
+
 <script>
-setTimeout(function(){
-  window.location.href = "Game.html"
-}, 5300)
+document.getElementById("progresso").addEventListener("animationend", function(){
+  document.getElementById("texto").innerHTML = "Pronto!"
+  document.getElementById("btnEntrar").classList.add("visivel")
+})
 </script>
 
 </body>

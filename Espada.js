@@ -48,7 +48,7 @@ atualizarBonusEspada()
 function atualizarBotoesEspadas(){
 
 
-for(let i = 1; i <= 9; i++){
+for(let i = 1; i <= 10; i++){
 
 
 let botao = document.getElementById("espadaBtn" + i)
@@ -105,42 +105,47 @@ bonusEspada = 2
 
 
 if(espadaEquipada == 2){
-bonusEspada = 3
-}
-
-
-if(espadaEquipada == 3){
 bonusEspada = 4
 }
 
 
-if(espadaEquipada == 4){
+if(espadaEquipada == 3){
 bonusEspada = 6
 }
 
 
-if(espadaEquipada == 5){
+if(espadaEquipada == 4){
 bonusEspada = 8
 }
 
 
-if(espadaEquipada == 6){
+if(espadaEquipada == 5){
 bonusEspada = 10
 }
 
 
-if(espadaEquipada == 7){
+if(espadaEquipada == 6){
 bonusEspada = 12
 }
 
 
-if(espadaEquipada == 8){
+if(espadaEquipada == 7){
 bonusEspada = 15
 }
 
 
+if(espadaEquipada == 8){
+bonusEspada = 25
+}
+
+
 if(espadaEquipada == 9){
-bonusEspada = 30
+bonusEspada = 50
+}
+
+
+if(espadaEquipada == 10){
+bonusEspada = 100
 }
 
 

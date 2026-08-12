@@ -70,7 +70,10 @@ function formatarNumero(num) {
 ["Nvvg",1e81],
 ["Uqnd",1e84],
 ["Qrdvg",1e87],
-["Trvg",1e90]
+["Trvg",1e90],
+["Trig",1e93],
+["Dutg",1e96],
+["MAX",1e99]
 
 ]
 
@@ -97,10 +100,16 @@ const bossEscala = localStorage.getItem("BossEscala") || ""
 const bossImagem = localStorage.getItem("BossImagem") || ""
 const bossPowerText = localStorage.getItem("BossPowerText") || ""
 
+const modoNightmare = localStorage.getItem("modoNightmare") === "true"
+
 
 
 let poder = Number(localStorage.getItem("poder")) || 0
 let bossPower = converterPoder(bossValor, bossEscala)
+
+if(modoNightmare){
+  bossPower = bossPower * 100
+}
 
 let progresso = 50
 let lutaAtiva = false
@@ -126,7 +135,14 @@ function atualizarTopo() {
   }
 
   document.getElementById("Boss").innerHTML = bossNome
-  document.getElementById("Bosspower").innerHTML = bossPowerText || ("⚡" + formatarNumero(bossPower) + " Power")
+
+  if(modoNightmare){
+    document.getElementById("Bosspower").innerHTML = "☠️ NIGHTMARE ☠️<br>⚡" + formatarNumero(bossPower) + " Power"
+  }
+  else{
+    document.getElementById("Bosspower").innerHTML = bossPowerText || ("⚡" + formatarNumero(bossPower) + " Power")
+  }
+
   document.getElementById("BossAtual").src = bossImagem
   document.getElementById("poder").innerHTML = formatarNumero(poder) + " Power"
 }
@@ -180,6 +196,56 @@ function calcularDanos() {
   return { danoJogador, danoBoss }
 }
 
+function calcularChanceNightmare(chance){
+  const tabela = {
+    0.1: 1,
+    1: 5,
+    5: 15,
+    7: 20,
+    10: 25,
+    15: 32,
+    20: 40,
+    30: 50,
+    40: 60,
+    50: 70
+  }
+
+  if(tabela[chance] !== undefined){
+    return tabela[chance]
+  }
+
+  return Math.min(90, (chance * 3) + 2)
+}
+
+function aplicarVisualNightmare(ativo){
+  let overlay = document.getElementById("nightmareOverlay")
+
+  if(!overlay){
+    overlay = document.createElement("div")
+    overlay.id = "nightmareOverlay"
+    overlay.style.position = "fixed"
+    overlay.style.inset = "0"
+    overlay.style.pointerEvents = "none"
+    overlay.style.zIndex = "5000"
+    overlay.style.transition = "opacity 0.6s"
+    overlay.style.background = "radial-gradient(circle, rgba(60,0,0,0) 35%, rgba(120,0,0,0.55) 100%)"
+    overlay.style.mixBlendMode = "multiply"
+    overlay.style.opacity = "0"
+    document.body.appendChild(overlay)
+  }
+
+  if(ativo){
+    overlay.style.opacity = "1"
+    document.body.style.filter = "contrast(1.15) saturate(1.3) brightness(0.75) sepia(0.15) hue-rotate(-10deg)"
+  }
+  else{
+    overlay.style.opacity = "0"
+    document.body.style.filter = ""
+  }
+}
+
+aplicarVisualNightmare(modoNightmare)
+
 let loser = new Audio("Loser.mp3")
 let coins = new Audio("Coins.mp3")
 let win = new Audio("Win.mp3")
@@ -199,34 +265,51 @@ async function encerrarLuta(vitoria) {
 
     btnLutar.disabled = true
 
-    if (vitoria) {
+    try {
 
-        coins.play()
-        win.play()
+        if (vitoria) {
 
-        alert("Boss derrotado!")
+            coins.play().catch(() => {})
+            win.play().catch(() => {})
 
-        ganharMoedas(bossOuro)
+            alert("Boss derrotado!")
 
-        droparEspada(bossEspada, bossChanceEspada)
+            let ouroFinal = bossOuro
+            let chanceFinal = bossChanceEspada
 
-        await salvarMoedasSupabase().catch(erro => {
-  
-})
+            if(modoNightmare){
+              ouroFinal = bossOuro * 2
+              chanceFinal = calcularChanceNightmare(bossChanceEspada)
+            }
+
+            ganharMoedas(ouroFinal)
+
+            droparEspada(bossEspada, chanceFinal)
+
+            await salvarMoedasSupabase().catch(erro => {
+                console.error("Erro ao salvar moedas:", erro)
+            })
+        }
+        else {
+
+            loser.play().catch(() => {})
+            alert("Você perdeu!")
+        }
+
+    } catch(erro) {
+
+        console.error("Erro ao encerrar luta:", erro)
+
+    } finally {
+
+        localStorage.removeItem("BossNome")
+        localStorage.removeItem("BossValor")
+        localStorage.removeItem("BossEscala")
+        localStorage.removeItem("BossImagem")
+        localStorage.removeItem("BossPowerText")
+
+        window.location.href = "batalha.html"
     }
-    else {
-
-        loser.play()
-        alert("Você perdeu!")
-    }
-
-    localStorage.removeItem("BossNome")
-    localStorage.removeItem("BossValor")
-    localStorage.removeItem("BossEscala")
-    localStorage.removeItem("BossImagem")
-    localStorage.removeItem("BossPowerText")
-
-    window.location.href = "batalha.html"
 }
 
 function checarFim() {
