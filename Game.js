@@ -1521,8 +1521,24 @@ async function verificarResetForcado(){
   const resetIdVisto = Number(localStorage.getItem("resetIdVisto")) || 0
 
   if(resetIdServidor > resetIdVisto){
+
+    const sessaoGuardada = {}
+    for(let i = 0; i < localStorage.length; i++){
+      const chave = localStorage.key(i)
+      if(chave.startsWith("sb-") || chave.includes("supabase")){
+        sessaoGuardada[chave] = localStorage.getItem(chave)
+      }
+    }
+
     localStorage.clear()
+
+    Object.keys(sessaoGuardada).forEach(function(chave){
+      localStorage.setItem(chave, sessaoGuardada[chave])
+    })
+
     localStorage.setItem("resetIdVisto", resetIdServidor)
+
+    location.reload()
   }
 }
 
