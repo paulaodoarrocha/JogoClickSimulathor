@@ -241,64 +241,64 @@ if(poder >= 1e99){
 bonusRank = 9e99
 }
 else if(poder >= 1e98){
-bonusRank = 5e85
+bonusRank = 1e85
 }
 else if(poder >= 1e97){
-bonusRank = 2e85
+bonusRank = 1e85
 }
 else if(poder >= 1e95){
 bonusRank = 1e84
 }
 else if(poder >= 1e93){
-bonusRank = 3e82
+bonusRank = 1e82
 }
 else if(poder >= 1e90){
 bonusRank = 1e80
 }
 else if(poder >= 3e87){
-bonusRank = 6e76
+bonusRank = 1e76
 }
 else if(poder >= 3e84){
-bonusRank = 2e74
+bonusRank = 1e74
 }
 else if(poder >= 3e81){
-bonusRank = 2e72
+bonusRank = 1e72
 }
 else if(poder >= 3e78){
-bonusRank = 3e70
+bonusRank = 1e70
 }
 else if(poder >= 3e75){
 bonusRank = 1e66
 }
 else if(poder >= 3e72){
-bonusRank = 5e64
+bonusRank = 2e64
 }
 else if(poder >= 6e69){
 bonusRank = 1e62
 }
 else if(poder >= 6e66){
-bonusRank = 5e58
+bonusRank = 2e58
 }
 else if(poder >= 6e63){
-bonusRank = 9e55
+bonusRank = 5e55
 }
 else if(poder >= 5e60){
-bonusRank = 9e52
+bonusRank = 4e52
 }
 else if(poder >= 4e57){
-bonusRank = 7e50
+bonusRank = 1e50
 }
 else if(poder >= 9e54){
-bonusRank = 4e48
+bonusRank = 1e48
 }
 else if(poder >= 6e51){
-bonusRank = 6e45
+bonusRank = 1e45
 }
 else if(poder >= 3e48){
-bonusRank = 5e41
+bonusRank = 1e41
 }
 else if(poder >= 1e45){
-bonusRank = 2e39
+bonusRank = 1e39
 }
 else if(poder >= 1e42){
 bonusRank = 1e36
@@ -307,10 +307,10 @@ else if(poder >= 9e39){
 bonusRank = 1e33
 }
 else if(poder >= 2e36){
-bonusRank = 5e31
+bonusRank = 1e31
 }
 else if(poder >= 9e33){
-bonusRank = 3e28
+bonusRank = 1e28
 }
 else if(poder >= 3e30){
 bonusRank = 1e25
@@ -319,19 +319,19 @@ else if(poder >= 9e25){
 bonusRank = 1e23
 }
 else if(poder >= 7e22){
-bonusRank = 5e19
+bonusRank = 1e19
 }
 else if(poder >= 2e18){
-bonusRank = 9e16
+bonusRank = 1e16
 }
 else if(poder >= 3e16){
-bonusRank = 5e13
+bonusRank = 1e13
 }
 else if(poder >= 1e14){
 bonusRank = 1e12
 }
 else if(poder >= 9e13){
-bonusRank = 5e9
+bonusRank = 1e9
 }
 else if(poder >= 1e10){
 bonusRank = 1e8
@@ -349,7 +349,7 @@ else if(poder >= 10000){
 bonusRank = 200
 }
 else if(poder >= 500){
-bonusRank = 50
+bonusRank = 40
 }
 else if(poder >= 50){
 bonusRank = 8
@@ -1499,6 +1499,34 @@ alert(
 }
 
 
+async function verificarResetForcado(){
+  const resultado = await cliente.auth.getUser()
+  if(resultado.error || !resultado.data.user){
+    return
+  }
+
+  const userId = resultado.data.user.id
+
+  const resposta = await cliente
+    .from("inventario")
+    .select("reset_id")
+    .eq("user_id", userId)
+    .maybeSingle()
+
+  if(resposta.error || !resposta.data){
+    return
+  }
+
+  const resetIdServidor = Number(resposta.data.reset_id) || 0
+  const resetIdVisto = Number(localStorage.getItem("resetIdVisto")) || 0
+
+  if(resetIdServidor > resetIdVisto){
+    localStorage.clear()
+    localStorage.setItem("resetIdVisto", resetIdServidor)
+  }
+}
+
+
 async function sincronizarPrimeiroAcesso(){
     const resultado = await cliente.auth.getUser()
 
@@ -1541,7 +1569,9 @@ async function sincronizarPrimeiroAcesso(){
     atualizarMoedas()
 }
 
-sincronizarPrimeiroAcesso()
+verificarResetForcado().then(function(){
+  sincronizarPrimeiroAcesso()
+})
 
 
 async function carregarTudoAoIniciar(){
