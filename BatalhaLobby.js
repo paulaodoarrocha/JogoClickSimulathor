@@ -171,10 +171,10 @@ const ranksLobby = [
   {poder:3e84, nome:"Rei Do Six Seven👑"},
   {poder:3e87, nome:"DESEMPREGADO 💀"},
   {poder:1e90, nome:"COMO VOCÊ CHEGOU A ISSO? 👁️"},
-  {poder:1e93, nome:"Bug Do Universo 🐛"},
-  {poder:1e95, nome:"Savage Supremo 💀🔥"},
-  {poder:1e97, nome:"Anomalia Cósmica 🌀"},
-  {poder:1e98, nome:"Dev Surtou 😭 (Meme)"},
+  {poder:1e93, nome:"The Vazio Creathor"},
+  {poder:1e95, nome:"boundless"},
+  {poder:1e97, nome:"Inimigo do Sol"},
+  {poder:1e98, nome:"Conquistador da Vanessa"},
   {poder:1e99, nome:"ALCANÇOU O LIMITE 9e99 ♾️👑"}
 ]
 
